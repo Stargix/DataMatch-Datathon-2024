@@ -90,13 +90,21 @@ function send_form() {
     if (!preferred_role) {
         preferred_role = "Don't care";
     }
+
+    var years = ["1st", "2nd", "3rd", "4th"];
+    var year_study = selectedYears[0];
+    
+    if (years.includes(selectedYears[0])) {
+        year_study += " year";
+    }
+
     // Collect all the data
     let participant_info = {
-        name: document.getElementById("firstName").value,
-        age: document.getElementById("lastName").value,
+        name: document.getElementById("firstName").value + " " + document.getElementById("lastName").value,
+        age: age,
         email: document.getElementById("email").value,
         age: age,
-        year_of_study: selectedYears,
+        year_of_study: year_study,
         shirt_size: shirtSize,
         university: document.getElementById("uni").value,
         dietary_restrictions: dietaryRestrictions,
