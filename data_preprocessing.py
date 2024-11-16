@@ -16,19 +16,15 @@ dff['objective'] = dff['objective'].apply(objectives)
 # Remove unimportant columns
 print(dff['objective'])"""
 
-
 columns_to_drop = ['name', 'email','shirt_size','university','dietary_restrictions','introduction','future_excitement','fun_fact', 'objective', 'technical_project','friend_registration','interest_in_challenges']  # Replace with the names of the columns you wish to remove
 df.drop(columns=columns_to_drop, inplace=True)
 
 # Inspect the DataFrame after removing columns
-#print(df.head())
-
 # Convert interests to binary format
 mlb = skpre.MultiLabelBinarizer()
 interests_binarized = mlb.fit_transform(df['interests'])
 
 #languages_bin = mlb.fit_transform(df['preferred_languages'])
-
 # Create a DataFrame for the binarized interests
 interests_df = pd.DataFrame(interests_binarized, columns=mlb.classes_)
 

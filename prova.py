@@ -6,6 +6,7 @@ from api_users import caracteriasticas
 import json
 from flask import Flask, jsonify, request
 import ast
+import uuid
 
 df = pd.read_excel('datathon_participants_processed.xlsx')
 def info_group(user_profile):
@@ -39,6 +40,15 @@ for key, value in data_dict.items():
     if isinstance(value, (list, dict)):
         data_dict[key] = str(value)
 
-df = pd.DataFrame([data_dict])
-print(df)
+df_user = pd.DataFrame([data_dict])
+
+# Generate un UUID
+random_uuid = str(uuid.uuid4())
+while random_uuid in df['id'].values:
+    random_uuid = str(uuid.uuid4())
+df_user['id'] = random_uuid
+
+columns_to_drop = ['name', 'email','shirt_size','university','dietary_restrictions','introduction','future_excitement','fun_fact', 'objective', 'technical_project','friend_registration','interest_in_challenges']
+
+print(df_user)
 
