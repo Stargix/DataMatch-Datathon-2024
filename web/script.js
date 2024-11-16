@@ -251,7 +251,7 @@ function toggleChallengeSelection(challenge) {
   
     let selectedCard = 0;
   
-    const app = document.getElementById("results_page");
+    const app = document.getElementById("skeleton_page");
   
     function render() {
       app.innerHTML = `
@@ -285,21 +285,10 @@ function toggleChallengeSelection(challenge) {
             .join("")}
         </div>
         <div class="text-center space-y-6 fade-in">
-          <h1 class="text-4xl md:text-5xl font-serif font-medium text-gray-900">We found you a team!</h1>
+          <h1 class="text-4xl md:text-5xl font-serif font-medium text-gray-900">We are almost done!</h1>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Select your teammates to view more information about them
+            We are building an amazing team based on your preferences
           </p>
-
-        <!-- Find Another Button -->
-        <button style="margin-right:8px;" class="group relative inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-lg font-medium text-gray-900 transition-transform hover:scale-105 hover:bg-gray-50 border border-gray-300" onclick="findAnother();">
-          Find Another
-        </button>
-
-        <button style="background-color:rgb(33 145 140);margin-left:8px;" onclick="joinTeam();" class="group relative inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-3 text-lg font-medium text-white transition-transform hover:scale-105">
-            Join the team
-          </button>
-          
-
 
         </div>
       `;

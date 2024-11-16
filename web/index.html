@@ -54,7 +54,7 @@
 
   <div id="app" style="display: none;margin-top:100px;" class="w-full max-w-6xl mx-auto"></div>
 
-  <div id="dashboard" style="display: none;" class="container mx-auto px-16 mt-6">
+  <div id="dashboard" style="display: ;" class="container mx-auto px-16 mt-6">
     <!-- Header -->
     <header class="flex items-center justify-between mb-12">
       <div class="flex items-center gap-4" style="margin-left: auto;">
@@ -470,10 +470,10 @@
     </div>
   </div>
 
-  <div id="results_page" style="display: none;margin-top:100px;" class="w-full max-w-6xl mx-auto">
+  <div id="skeleton_page" style="display: none;margin-top:100px;" class="w-full max-w-6xl mx-auto">
   </div>
 
-  <div id="real_results_page" style="display: ;margin-top:100px;" class="w-full max-w-6xl mx-auto">
+  <div id="real_results_page" style="display: none;margin-top:100px;" class="w-full max-w-6xl mx-auto">
     <div class="flex flex-wrap justify-center gap-4 mb-12">
 
        <!-- Card 1 -->
@@ -504,9 +504,26 @@
     <div id="user_description_4" class="text-sm text-gray-500 -mt-2">Product Manager</div>
   </div>
 
-  
     </div>
     
+    <div class="text-center space-y-6 fade-in">
+      <h1 class="text-4xl md:text-5xl font-serif font-medium text-gray-900">We found you a team!</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Select your teammates to view more information about them
+      </p>
+
+    <!-- Find Another Button -->
+    <button style="margin-right:8px;" class="group relative inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-lg font-medium text-gray-900 transition-transform hover:scale-105 hover:bg-gray-50 border border-gray-300" onclick="findAnother();">
+      Find Another
+    </button>
+
+    <button style="background-color:rgb(33 145 140);margin-left:8px;" onclick="joinTeam();" class="group relative inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-3 text-lg font-medium text-white transition-transform hover:scale-105">
+        Join the team
+      </button>
+
+    </div>
+
+
   </div>
 
 </body>

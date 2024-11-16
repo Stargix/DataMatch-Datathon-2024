@@ -145,15 +145,16 @@ function send_form() {
 
     console.log(participant_info);
 
-    // DESIGN
-        // Loading screen
-        // Team found cards
-        // Team details
-        // Team member details (if enough time)
-
     document.getElementById("team_building_form").style.display = "none";
     document.getElementById("loader_spinner").style.display = "flex";
 
+}
+
+
+function show_team_skeleton() {
+
+    document.getElementById("loader_spinner").style.display = "none";
+    document.getElementById("skeleton_page").style.display = "block";
 }
 
 
@@ -162,7 +163,7 @@ var users = [];
 
 function show_real_results(users) {
 
-    document.getElementById("skeleton_results_cards").style.display = "none";
+    document.getElementById("skeleton_page").style.display = "none";
 
     // Loop through the users and update the pre-existing cards
     users.slice(1, 4).forEach((user, index) => {
@@ -185,6 +186,8 @@ function show_real_results(users) {
     firstAvatar.src = `https://avatar.oxro.io/avatar.svg?name=${encodeURIComponent(sent_json.name)}`;
     firstName.textContent = sent_json.name;
     firstDescription.textContent = sent_json.preferred_role;
+
+    document.getElementById("real_results_page").style.display = "block";
     
       //columnas_seleccionadas = ["id", "name", "age", "year_of_study", "university", "interests", "preferred_role", "experience_level", "hackathons_done", "objective", "introduction", "technical_project", "fun_fact", "availability","interest_in_challenges" ]
 }
