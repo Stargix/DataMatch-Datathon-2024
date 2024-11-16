@@ -211,6 +211,13 @@ function joinTeam() {
         document.getElementById("team_subtext").innerHTML = "You can change your team if you wish";
         document.getElementById("button_team_join").innerHTML = "Leave the team";
         document.getElementById("button_team_join").style.backgroundColor = "#e74c3c";
+
+        // Put team member initials on the dashboard
+        document.getElementById("team_avatar_img_1").src = document.getElementById("user_avatar_1").src;
+        document.getElementById("team_avatar_2").src = document.getElementById("user_avatar_2").src;
+        document.getElementById("team_avatar_3").src = document.getElementById("user_avatar_3").src;
+        document.getElementById("team_avatar_4").src = document.getElementById("user_avatar_4").src;
+
         document.getElementById("dashboard").style.display = "block";
 
     }, 2000);
