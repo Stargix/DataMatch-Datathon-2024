@@ -176,6 +176,16 @@ function toggleYear(year) {
 }
   
 
+let selectedChallenge = ''; // To store the selected challenge
+
+function toggleChallengeSelection(challenge) {
+  // Update the selected challenge
+  selectedChallenge = selectedChallenge === challenge ? '' : challenge;
+
+  // Update button styles
+  updateButtonStyles('.challenge-button', [selectedChallenge]);
+}
+
   function updateButtonStyles(selector, selectedItems) {
     document.querySelectorAll(selector).forEach((button) => {
       const item = button.innerText.split(' ')[1]; // Assumes the emoji is first
