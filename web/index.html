@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FME Datathon - Dashboard</title>
+  <script defer src="script.js"></script>
+  <script defer src="form.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.15/base.min.css">
+  <style>
+
+    @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    .selected_team_card {
+      background-color:  rgb(33 145 140) !important;
+    }
+
+    /* Button styles for selected and unselected states */
+    .selected {
+      background-color: #0f766e; /* Teal color */
+      color: white;
+      border-color: #0f766e;
+    }
+
+    .unselected {
+      background-color: white;
+      color: #4b5563; /* Gray color */
+      border-color: #d1d5db; /* Border gray */
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<!--  class="min-h-screen bg-gradient-to-b from-white to-purple-50 p-4 flex"-->
+<body class="min-h-screen bg-gradient-to-br from-teal-50 to-white p-4 md:p-8">
+  
+  <div id="app" style="display: none;" class="w-full max-w-6xl mx-auto"></div>
+
+  <div id="dashboard" style="display: none;" class="container mx-auto px-16 mt-6">
+    <!-- Header -->
+    <header class="flex items-center justify-between mb-12">
+      <img src="./img/logo.png" style="width: 130px;">
+      <div class="flex items-center gap-4">
+        <div id="currentTime" class="text-sm text-gray-500 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
+          Back to main page
+        </div>
+        <button class="p-2 hover:bg-white/50 rounded-full transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m6.938-6.5L16.5 8M9 12a9 9 0 100-18 9 9 0 000 18z" />
+          </svg>
+        </button>
+        <button class="p-2 hover:bg-white/50 rounded-full transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4l1.09-2.17A5 5 0 0112 4h8m-5 0v8m4-4H4" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Welcome Message -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-serif font-medium text-gray-900 mb-4">Good Morning! 👋</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Manage your registration and team members</p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Upcoming Card -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-4 h-4 bg-orange-100 rounded-full"></div>
+          <h2 class="font-semibold">Upcoming</h2>
+        </div>
+        <div class="space-y-4">
+          <div class="group cursor-pointer">
+            <div class="text-sm font-medium">12:30 PM • Sumbissions</div>
+            <div class="text-sm text-gray-500">All Participants</div>
+          </div>
+          <div class="group cursor-pointer">
+            <div class="text-sm font-medium">14:00 PM • Presentations & Demos</div>
+            <div class="text-sm text-gray-500">Conference Room A</div>
+          </div>
+          <div class="group cursor-pointer">
+            <div class="text-sm font-medium">17:00 PM • Awards Ceremony 🥇</div>
+            <div class="text-sm text-gray-500">Conference Hall</div>
+          </div>
+          <div class="group cursor-pointer">
+            <div class="text-sm font-medium">18:00 PM • Farewell</div>
+            <div class="text-sm text-gray-500">FME Building</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Insights Card -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-4 h-4 bg-rose-100 rounded-full"></div>
+          <h2 class="font-semibold">Your team</h2>
+        </div>
+        <div class="space-y-6">
+          <div class="flex flex-col items-center text-center">
+            
+            <img src="./img/team_placeholder.png" class="mb-5 mt-2" style="opacity: 0.45;width: 75%;">
+            <div class="mb-1">
+              <h2 class="text-lg font-semibold">You don’t have a team yet</h2>
+              <p class="text-sm text-gray-500">Start collaborating by creating your first team.</p>
+            </div>
+          </div>
+
+          <button onclick="go_to_team_form();" 
+          class="w-full py-2 px-4 mt-4 text-white font-medium bg-[rgb(33,145,140)] rounded-md hover:bg-[rgb(28,126,121)] transition-colors">
+          Build a team
+        </button>
+        </div>
+      </div>
+
+      <!-- Vacation Card -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-4 h-4 bg-orange-100 rounded-full"></div>
+          <h2 class="font-semibold">Countdown</h2>
+        </div>
+        
+        <div class="relative flex justify-center items-center">
+          <svg class="w-48 h-48 transform -rotate-90">
+            <circle cx="96" cy="96" r="88" class="stroke-gray-300 stroke-[8] fill-none"></circle>
+            <circle style="stroke:rgb(33 145 140);" cx="96" cy="96" r="88" class="stroke-[8] fill-none" style="stroke-dasharray: 853; stroke-dashoffset: 138;"></circle>
+          </svg>
+          <div class="absolute flex flex-col items-center">
+            <div class="text-5xl font-semibold">0</div>
+            <div class="text-sm text-gray-500">Days left</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-2xl bg-white rounded-lg shadow-md overflow-hidden">
+    <div class="p-6 space-y-6">
+      <div class="space-y-1">
+        <div class="flex items-center justify-between">
+          <div class="text-sm text-gray-500">Step 1 of 4</div>
+          <div class="w-32 bg-gray-200 rounded-full h-2">
+            <div id="progressBar" class="bg-teal-600 h-2 rounded-full"></div>
+          </div>
+        </div>
+        <h2 style="margin-top: 20px;" class="text-2xl font-bold text-gray-900">Participant Information</h2>
+        <p class="text-gray-500">
+          Please provide your details for the hackathon registration.
+        </p>
+      </div>
+
+      <div id="form_step_1" style="display: none;">
+      <div class="space-y-4" style="margin-top: 30px;">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+            <input type="text" id="firstName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" required />
+          </div>
+          <div>
+            <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+            <input type="text" id="lastName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" required />
+          </div>
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" required />
+        </div>
+        <div>
+          <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+          <input type="date" id="dob" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" required />
+        </div>
+        <!--<div>
+          <label for="hackathons" class="block text-sm font-medium text-gray-700">Hackathons Done</label>
+          <select id="hackathons" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md" required>
+            <option value="">Select an option</option>
+            <option value="None">None</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="4+">4+</option>
+          </select>
+        </div>-->
+      </div>
+      <div class="space-y-4" style="margin-top: 20px;">
+        <h3 class="text-sm font-medium text-gray-900">What's your preferred role?</h3>
+        <div class="flex flex-wrap gap-2">
+          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Analysis">📊 Analysis</button>
+          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Visualization">📈 Visualization</button>
+          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Development">💻 Development</button>
+          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Design">🎨 Design</button>
+        </div>
+      </div>
+      </div>
+
+      <div id="form_step_2">
+              <!-- Shirt Size Selection -->
+      <div class="space-y-4">
+        <h3 class="text-sm font-medium text-gray-900">What's your preferred shirt size?</h3>
+        <div class="flex flex-wrap gap-2">
+          <button id="size-XS" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('XS')">XS</button>
+          <button id="size-S" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('S')">S</button>
+          <button id="size-M" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('M')">M</button>
+          <button id="size-L" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('L')">L</button>
+          <button id="size-XL" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('XL')">XL</button>
+          <button id="size-XXL" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('XXL')">XXL</button>
+        </div>
+      </div>
+
+      <!-- Dietary Restrictions Selection -->
+      <div class="space-y-4" style="margin-top: 20px;">
+        <h3 class="text-sm font-medium text-gray-900">Do you have any dietary restrictions?</h3>
+        <div class="flex flex-wrap gap-2">
+          <button id="diet-vegetarian" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Vegetarian')">🥕 Vegetarian</button>
+          <button id="diet-vegan" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Vegan')">🌱 Vegan</button>
+          <button id="diet-gluten" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Gluten-free')">🌾 Gluten-free</button>
+          <button id="diet-lactose" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Lactose-free')">🥛 Lactose-free</button>
+          <button id="diet-nuts" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Nut allergy')">🥜 Nut allergy</button>
+          <button id="diet-kosher" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Kosher')">✡️ Kosher</button>
+          <button id="diet-halal" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Halal')">☪️ Halal</button>
+        </div>
+      </div>
+
+      <!-- Interests Selection -->
+      <div class="space-y-4" style="margin-top:20px;">
+        <h3 class="text-sm font-medium text-gray-900">What are your interests?</h3>
+        <div class="flex flex-wrap gap-2">
+          <button id="interest-technology" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Technology')">💻 Technology</button>
+          <button id="interest-sports" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Sports')">⚽ Sports</button>
+          <button id="interest-music" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Music')">🎵 Music</button>
+          <button id="interest-art" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Art')">🎨 Art</button>
+          <button id="interest-travel" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Travel')">✈️ Travel</button>
+          <button id="interest-cooking" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Cooking')">👨‍🍳 Cooking</button>
+          <button id="interest-reading" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Reading')">📚 Reading</button>
+          <button id="interest-gaming" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Gaming')">🎮 Gaming</button>
+          <button id="interest-fitness" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Fitness')">🏋️ Fitness</button>
+          <button id="interest-photography" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Photography')">📷 Photography</button>
+        </div>
+      </div>
+      </div>
+
+      <div class="flex justify-between pt-6">
+        <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+          Previous step
+        </button>
+        <button class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+          Next step
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

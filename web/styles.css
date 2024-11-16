@@ -1,0 +1,146 @@
+:root {
+    --purple-gradient: linear-gradient(to bottom, #a78bfa, #7c3aed);
+    --gray-100: #f3f4f6;
+    --gray-500: #6b7280;
+    --gray-900: #1f2937;
+  }
+  
+
+  @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+
+  body {
+    margin: 0;
+    font-family: "Poppins" !important, sans-serif;
+  }
+  
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  
+  .bg-gradient-to-b {
+    background: var(--purple-gradient);
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .p-4 {
+    padding: 1rem;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .max-w-6xl {
+    max-width: 72rem;
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  
+  .gap-4 {
+    gap: 1rem;
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .transition-all {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .scale-110 {
+    transform: scale(1.1);
+  }
+  
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  .w-48 {
+    width: 12rem;
+  }
+  
+  .h-64 {
+    height: 16rem;
+  }
+  
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .p-6 {
+    padding: 1.5rem;
+  }
+  
+  .bg-gray-100 {
+    background-color: var(--gray-100);
+  }
+  
+  .bg-gray-900 {
+    background-color: var(--gray-900);
+  }
+  
+  .bg-white {
+    background-color: #fff;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .text-gray-600 {
+    color: var(--gray-500);
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .font-medium {
+    font-weight: 500;
+  }
+  
+  .hover\:translate-x-1:hover {
+    transform: translateX(0.25rem);
+  }
+  
+
