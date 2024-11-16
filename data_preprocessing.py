@@ -2,13 +2,21 @@ from participant import load_participants
 from rich import print
 import pandas as pd
 import sklearn.preprocessing as skpre
+from ai_agent import objectives
 
 data_path = "data/datathon_participants.json"
 participants = load_participants(data_path)
 
 df = pd.DataFrame(participants)
+print(df.columns)
+"""
+dff = df.head(5)
 
+dff['objective'] = dff['objective'].apply(objectives)
 # Remove unimportant columns
+print(dff['objective'])"""
+
+
 columns_to_drop = ['name', 'email','shirt_size','university','dietary_restrictions','introduction','future_excitement','fun_fact', 'objective', 'technical_project','friend_registration','interest_in_challenges']  # Replace with the names of the columns you wish to remove
 df.drop(columns=columns_to_drop, inplace=True)
 
@@ -44,32 +52,6 @@ df = pd.concat([df, languages_df], axis=1)
 
 df.drop(columns=['interests','preferred_languages','availability'], inplace=True)
 
-
-"""
-
-df['programming_skills'] = df['programming_skills'].apply(lambda x: eval(x) if isinstance(x, str) else x)
-df['programming_skills'] = df['programming_skills'].fillna({})
-
-# Expand dictionaries into columns
-skills_df = pd.json_normalize(df['programming_skills'])
-
-# Replace NaN with 0 (if a skill is not present for a participant)
-skills_df = skills_df.fillna(0)
-
-# Concatenate the original DataFrame with the new columns
-df = pd.concat([df, skills_df], axis=1)
-
-# Remove the original `programming_skills` column if no longer needed
-df = df.drop(columns=['programming_skills'])
-
-skills_columns = skills_df.columns
-df[skills_columns] = scaler.fit_transform(df[skills_columns])
-
-# Convert skill names to lowercase to avoid duplicates
-skills_df.columns = [col.lower() for col in skills_df.columns]
-skills_df = skills_df.groupby(axis=1, level=0).sum()  # Combine duplicate columns
-
-"""
 def standardize_skills_json(df, skills_column='programming_skills'):
     """
     Standardize and process a JSON skills column for use in content-based filtering.
