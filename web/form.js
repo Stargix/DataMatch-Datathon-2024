@@ -143,7 +143,7 @@ function send_form() {
 
     sent_json = participant_info;
 
-    console.log(participant_info);
+    send_data(sent_json);
 
     document.getElementById("team_building_form").style.display = "none";
     document.getElementById("loader_spinner").style.display = "flex";
@@ -155,6 +155,28 @@ function show_team_skeleton() {
 
     document.getElementById("loader_spinner").style.display = "none";
     document.getElementById("skeleton_page").style.display = "block";
+}
+
+
+
+function send_data(data) {
+    
+    const url = "http://127.0.0.1:5000/recommendations";
+ 
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Response from server:", data);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
 }
 
 
@@ -214,9 +236,9 @@ function joinTeam() {
 
         // Put team member initials on the dashboard
         document.getElementById("team_avatar_img_1").src = document.getElementById("user_avatar_1").src;
-        document.getElementById("team_avatar_2").src = document.getElementById("user_avatar_2").src;
-        document.getElementById("team_avatar_3").src = document.getElementById("user_avatar_3").src;
-        document.getElementById("team_avatar_4").src = document.getElementById("user_avatar_4").src;
+        document.getElementById("team_avatar_img_2").src = document.getElementById("user_avatar_2").src;
+        document.getElementById("team_avatar_img_3").src = document.getElementById("user_avatar_3").src;
+        document.getElementById("team_avatar_img_4").src = document.getElementById("user_avatar_4").src;
 
         document.getElementById("dashboard").style.display = "block";
 

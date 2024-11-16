@@ -1,5 +1,4 @@
 from participant import load_participants
-from rich import print
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from api_users import caracteriasticas

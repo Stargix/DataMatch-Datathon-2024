@@ -1,5 +1,4 @@
 from participant import load_participants
-from rich import print
 import pandas as pd
 import sklearn.preprocessing as skpre
 from ai_agent import objectives
