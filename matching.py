@@ -18,9 +18,9 @@ def info_group(user_profile):
     recommended_items = list(enumerate(similarities[0]))
     recommended_items = sorted(recommended_items, key=lambda x: x[1], reverse=True)
 
-    top_4_items = recommended_items[:4]
+    top_4_items = recommended_items[:16]
 
-    top_4_items_ids = [df.iloc[recommended_items[i][0] + 1, 0] for i in range(5)]
+    top_4_items_ids = [df.iloc[recommended_items[i][0] + 1, 0] for i in range(16)]
     items_caracteristicas = []
 
     for x in top_4_items_ids:
