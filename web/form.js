@@ -243,7 +243,7 @@ function another_team() {
 
 function joinTeam() {
 
-    document.getElementById("spinner_text").innerHTML = "Saving your new team...";
+    document.getElementById("spinner_text").innerHTML = result_json[13]["answer"];
     document.getElementById("real_results_page").style.display = "none";
     document.getElementById("loader_spinner").style.display = "flex";
 
