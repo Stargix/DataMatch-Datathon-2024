@@ -8,31 +8,28 @@ participants = load_participants(data_path)
 
 df = pd.DataFrame(participants)
 
-# Eliminar columnes poc importants
-columns_to_drop = ['name', 'email','shirt_size','university','dietary_restrictions','introduction','future_excitement','fun_fact', 'objective', 'technical_project','friend_registration','interest_in_challenges']  # Reemplaça amb els noms de les columnes que desitges eliminar
+# Remove unimportant columns
+columns_to_drop = ['name', 'email','shirt_size','university','dietary_restrictions','introduction','future_excitement','fun_fact', 'objective', 'technical_project','friend_registration','interest_in_challenges']  # Replace with the names of the columns you wish to remove
 df.drop(columns=columns_to_drop, inplace=True)
 
-# Inspeccionar el DataFrame després d'eliminar columnes
+# Inspect the DataFrame after removing columns
 #print(df.head())
 
-# Convertir interessos a format binari
+# Convert interests to binary format
 mlb = skpre.MultiLabelBinarizer()
 interests_binarized = mlb.fit_transform(df['interests'])
 
 #languages_bin = mlb.fit_transform(df['preferred_languages'])
 
-# Crear un DataFrame per als interessos binaritzats
+# Create a DataFrame for the binarized interests
 interests_df = pd.DataFrame(interests_binarized, columns=mlb.classes_)
 
-# Combinar amb el DataFrame principal
+# Combine with the main DataFrame
 df = pd.concat([df, interests_df], axis=1)
 df = pd.get_dummies(df, columns=['preferred_role', 'experience_level'], dtype=int)
 
 availability_df = pd.DataFrame(list(df['availability'])).astype(int)
 df = pd.concat([df, availability_df], axis=1)
-
-
-
 
 year_order = ["1st year", "2nd year", "3rd year","4th year", "Masters", "PhD"]
 df['year_of_study'] = pd.Categorical(df['year_of_study'], categories=year_order, ordered=True)
@@ -53,74 +50,73 @@ df.drop(columns=['interests','preferred_languages','availability'], inplace=True
 df['programming_skills'] = df['programming_skills'].apply(lambda x: eval(x) if isinstance(x, str) else x)
 df['programming_skills'] = df['programming_skills'].fillna({})
 
-# Expandir los diccionarios en columnas
+# Expand dictionaries into columns
 skills_df = pd.json_normalize(df['programming_skills'])
 
-# Reemplazar NaN por 0 (si alguna habilidad no está presente para un participante)
+# Replace NaN with 0 (if a skill is not present for a participant)
 skills_df = skills_df.fillna(0)
 
-# Concatenar el DataFrame original con las columnas nuevas
+# Concatenate the original DataFrame with the new columns
 df = pd.concat([df, skills_df], axis=1)
 
-# Eliminar la columna original `programming_skills` si ya no es necesaria
+# Remove the original `programming_skills` column if no longer needed
 df = df.drop(columns=['programming_skills'])
-
 
 skills_columns = skills_df.columns
 df[skills_columns] = scaler.fit_transform(df[skills_columns])
 
-# Convertir nombres de habilidades a minúsculas para evitar duplicados
+# Convert skill names to lowercase to avoid duplicates
 skills_df.columns = [col.lower() for col in skills_df.columns]
-skills_df = skills_df.groupby(axis=1, level=0).sum()  # Combinar columnas duplicadas
+skills_df = skills_df.groupby(axis=1, level=0).sum()  # Combine duplicate columns
 
 """
 def standardize_skills_json(df, skills_column='programming_skills'):
     """
-    Estandariza y procesa una columna JSON de habilidades para su uso en filtrado basado en contenido.
+    Standardize and process a JSON skills column for use in content-based filtering.
     
     Parameters:
     -----------
     df : pandas.DataFrame
-        DataFrame que contiene la columna de habilidades
+        DataFrame containing the skills column
     skills_column : str
-        Nombre de la columna que contiene el JSON de habilidades
+        Name of the column containing the JSON skills
         
     Returns:
     --------
     pandas.DataFrame
-        DataFrame procesado con las habilidades normalizadas
+        Processed DataFrame with normalized skills
     list
-        Lista de las columnas de habilidades procesadas
+        List of processed skill columns
     """
-    # Crear una copia del DataFrame original
+    # Create a copy of the original DataFrame
     df_processed = df.copy()
     
-    # Convertir strings JSON a diccionarios
+    # Convert JSON strings to dictionaries
     df_processed[skills_column] = df_processed[skills_column].apply(
         lambda x: eval(x) if isinstance(x, str) else x
     )
     
-    # Rellenar valores nulos con diccionarios vacíos
+    # Fill null values with empty dictionaries
     df_processed[skills_column] = df_processed[skills_column].fillna({})
     
-    # Expandir el JSON en columnas individuales
+    # Expand JSON into individual columns
     skills_df = pd.json_normalize(df_processed[skills_column])
     
-    # Procesar nombres de columnas
+    # Process column names
     skills_df.columns = [col.lower().strip() for col in skills_df.columns]
     
-    # Combinar columnas duplicadas
+    # Combine duplicate columns
     skills_df = skills_df.groupby(axis=1, level=0).sum()
     
-    # Rellenar valores faltantes con 0
+    # Fill missing values with 0
     skills_df = skills_df.fillna(0)
     
-    # Normalizar valores usando MinMaxScaler
+    # Normalize values using MinMaxScaler
     scaler = skpre.MinMaxScaler()
     skills_columns = skills_df.columns
     skills_df[skills_columns] = scaler.fit_transform(skills_df[skills_columns])
     
-    # Combinar con el DataFrame original
+    # Combine with the original DataFrame
     df_final = pd.concat([
         df_processed.drop(columns=[skills_column]),
         skills_df
@@ -130,11 +126,8 @@ def standardize_skills_json(df, skills_column='programming_skills'):
 
 df, skill_columns = standardize_skills_json(df)
 
-# Guardar el DataFrame en un fitxer Excel
+# Save the DataFrame to an Excel file
 output_path = "datathon_participants_processed.xlsx"
 df.to_excel(output_path, index=False)
 #print(df.head())
 print(df.columns)
-
-
-
