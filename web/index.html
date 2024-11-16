@@ -201,10 +201,10 @@
       <div class="space-y-4" style="margin-top: 20px;">
         <h3 class="text-sm font-medium text-gray-900">What's your preferred role?</h3>
         <div class="flex flex-wrap gap-2">
-          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Analysis">📊 Analysis</button>
-          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Visualization">📈 Visualization</button>
-          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Development">💻 Development</button>
-          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Design">🎨 Design</button>
+          <button onclick="select_role('analysis')" class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Analysis">📊 Analysis</button>
+          <button onclick="select_role('visualization')" class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Visualization">📈 Visualization</button>
+          <button onclick="select_role('development')" class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Development">💻 Development</button>
+          <button onclick="select_role('design')" class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Design">🎨 Design</button>
         </div>
       </div>
       </div>
@@ -230,10 +230,7 @@
           <button id="diet-vegetarian" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Vegetarian')">🥕 Vegetarian</button>
           <button id="diet-vegan" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Vegan')">🌱 Vegan</button>
           <button id="diet-gluten" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Gluten-free')">🌾 Gluten-free</button>
-          <button id="diet-lactose" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Lactose-free')">🥛 Lactose-free</button>
-          <button id="diet-nuts" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Nut-allergic')">🥜 Nut-allergic</button>
-          <button id="diet-kosher" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Kosher')">✡️ Kosher</button>
-          <button id="diet-halal" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Halal')">☪️ Halal</button>
+          <button id="diet-other" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Other')">🍽️ Other</button>
         </div>
       </div>
 
@@ -259,8 +256,8 @@
         
         <!-- University -->
         <div style="margin-top: 30px;">
-          <label for="hackathons" class="block text-sm font-medium text-gray-700">What's your University?</label>
-          <select id="hackathons" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md" required>
+          <label for="uni" class="block text-sm font-medium text-gray-700">What's your University?</label>
+          <select id="uni" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md" required>
             <option value="">Select an option</option>
             <option value="UPC">UPC</option>
             <option value="UB">UB</option>
@@ -290,12 +287,12 @@
       <div class="space-y-4" style="margin-top: 20px;">
         <h3 class="text-sm font-medium text-gray-900">What is your current year of study?</h3>
         <div class="flex flex-wrap gap-2">
-          <button id="year-1st-year" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('1st year')">1st year</button>
-          <button id="year-2nd-year" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('2nd year')">2nd year</button>
-          <button id="year-3rd-year" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('3rd year')">3rd year</button>
-          <button id="year-4th-year" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('4th year')">4th year</button>
-          <button id="year-masters" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('Masters')">Masters</button>
-          <button id="year-phd" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('PhD')">PhD</button>
+          <button id="year-1st" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('1st')">1st</button>
+          <button id="year-2nd" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('2nd')">2nd</button>
+          <button id="year-3rd" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('3rd')">3rd</button>
+          <button id="year-4th" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('4th')">4th</button>
+          <button id="year-Masters" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('Masters')">Masters</button>
+          <button id="year-PhD" class="year-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleYear('PhD')">PhD</button>
         </div>
       </div>
 

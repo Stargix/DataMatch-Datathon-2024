@@ -97,6 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let shirtSize = '';
   let dietaryRestrictions = [];
   let interests = [];
+  var preferred_role = '';
+
+  function select_role(name) {
+    preferred_role = name;
+  }
 
   function setShirtSize(size) {
     shirtSize = size;
@@ -172,7 +177,17 @@ function toggleYear(year) {
   } else {
     selectedYears.push(year);
   }
-  updateButtonStyles('.year-button', selectedYears);
+  console.log(selectedYears); // Debugging output to check the selected years
+  updateYearsButtonStyles('.year-button', selectedYears);
+}
+
+function updateYearsButtonStyles(selector, selectedItems) {
+  document.querySelectorAll(selector).forEach((button) => {
+    const item = button.innerText.trim(); // Ensure accurate matching
+    button.classList.toggle('bg-teal-600', selectedItems.includes(item));
+    button.classList.toggle('text-white', selectedItems.includes(item));
+    button.classList.toggle('unselected', !selectedItems.includes(item));
+  });
 }
   
 
