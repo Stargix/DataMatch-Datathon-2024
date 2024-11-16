@@ -28,7 +28,7 @@ def info_group(user_profile):
 
     top_4_items_caracteristicas = items_caracteristicas[:4]
     answer = objectives(str(top_4_items_caracteristicas))
-    items_caracteristicas.append(answer)
+    items_caracteristicas.append(json.dumps({"answer": answer}))
     items_caracteristicas_json = json.dumps(items_caracteristicas, ensure_ascii=False, indent=4)
 
     return items_caracteristicas_json
