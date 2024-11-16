@@ -23,7 +23,6 @@ function start_team_form() {
 }
 
 
-
 // FORM TITLES AND SUBTITLES
 let form_section_titles = ["Participant Information", "Tell us about your preferences", "Tell us about your skills", "More about yourself", "Almost done! ☀️"];
 let form_section_subtitles = ["Let's start with some basic information", "Help us customize your experience", "Select all programming languages you're proficient in", "Please tell us more about your objectives and yourself for the Datathon", "Tell us about your projects, your future, and a fun fact"]
@@ -49,7 +48,7 @@ function form_next_button() {
     // Form finished
     if (form_page >= form_max_pages) {
 
-        alert("Form finished");
+        send_form();
 
     }
 
@@ -67,5 +66,16 @@ function form_next_button() {
         progressBar.style.width = `${progress}%`;
 
     }
+
+}
+
+// Save the data and send to server for teammates formation
+function send_form() {
+
+    // DESIGN
+        // Loading screen
+        // Team found cards
+        // Team details
+        // Team member details (if enough time)
 
 }
