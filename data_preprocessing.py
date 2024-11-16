@@ -86,7 +86,7 @@ def standardize_skills_json(df, skills_column='programming_skills'):
     return df_final, list(skills_columns)
 
 df, skill_columns = standardize_skills_json(df)
-
+df.columns = df.columns.str.lower()
 # Save the DataFrame to an Excel file
 output_path = "datathon_participants_processed.xlsx"
 df.to_excel(output_path, index=False)
