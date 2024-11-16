@@ -5,6 +5,7 @@ from api_users import caracteriasticas
 import json
 from flask import Flask, jsonify, request
 from matching import matching
+from flask_cors import CORS
 
 df = pd.read_excel('datathon_participants_processed.xlsx')
 def info_group(user_profile):
@@ -30,6 +31,7 @@ def info_group(user_profile):
 
 
 app = Flask(__name__)
+CORS(app)  # Enables CORS for all routes
 
 @app.route('/recommendations', methods=['POST'])
 def get_recommendations():
@@ -37,7 +39,7 @@ def get_recommendations():
     # User preferences (JSON)
     user_json = request.get_json()
     
-    return matching(user_json)
+    return str(matching(str(user_json)))
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -69,7 +69,7 @@
 
   <div id="app" style="display: none;margin-top:100px;" class="w-full max-w-6xl mx-auto"></div>
 
-  <div id="dashboard" style="display: none;" class="container mx-auto px-16 mt-6">
+  <div id="dashboard" style="display: ;" class="container mx-auto px-16 mt-6">
     <!-- Header -->
     <header class="flex items-center justify-between mb-12">
       <div class="flex items-center gap-4" style="margin-left: auto;">
@@ -122,14 +122,19 @@
         <div class="space-y-6">
           <div class="flex flex-col items-center text-center">
             
-            <div id="team_images_real" class="flex justify-center gap-2 mb-5 mt-2">
+            <div id="team_images_real" style="display: none;" class="flex justify-center gap-2 mb-5 mt-2">
               <div id="team_avatar_1" class="w-16 h-16 rounded-md flex justify-center items-center text-white text-xl font-bold">
-                <img style="border-radius: 5px;" id="team_avatar_img_1" src="./img/avatar_1.png" alt="" class="w-16 h-16">
+                <img style="border-radius: 20px;" id="team_avatar_img_1" src="./img/avatar_1.png" alt="" class="w-16 h-16">
               </div>
-            </div>
-              <div id="team_avatar_2" class="w-16 h-16 rounded-md flex justify-center items-center text-white text-xl font-bold"></div>
-              <div id="team_avatar_3" class="w-16 h-16 rounded-md flex justify-center items-center text-white text-xl font-bold"></div>
-              <div id="team_avatar_4" class="w-16 h-16 rounded-md flex justify-center items-center text-white text-xl font-bold"></div>
+              <div id="team_avatar_2" class="w-16 h-16 rounded-md flex justify-center items-center text-white text-xl font-bold">
+                <img style="border-radius: 20px;" id="team_avatar_img_2" src="./img/avatar_2.png" alt="" class="w-16 h-16">
+              </div>
+              <div id="team_avatar_3" class="w-16 h-16 rounded-md flex justify-center items-center text-white text-xl font-bold">
+                <img style="border-radius: 20px;" id="team_avatar_img_3" src="./img/avatar_3.png" alt="" class="w-16 h-16">
+              </div>
+              <div id="team_avatar_4" class="w-16 h-16 rounded-md flex justify-center items-center text-white text-xl font-bold">
+                <img style="border-radius: 20px;" id="team_avatar_img_4" src="./img/avatar_4.png" alt="" class="w-16 h-16">
+              </div>
             </div>
 
             <img id="team_images_placeholder" src="./img/team_placeholder.png" class="mb-5 mt-2" style="opacity: 0.45;width: 75%;">
@@ -498,7 +503,7 @@
   <div id="skeleton_page" style="display: none;margin-top:100px;" class="w-full max-w-6xl mx-auto">
   </div>
 
-  <div id="real_results_page" style="display: ;margin-top:100px;" class="w-full max-w-6xl mx-auto">
+  <div id="real_results_page" style="display: none;margin-top:100px;" class="w-full max-w-6xl mx-auto">
     <div class="flex flex-wrap justify-center gap-4 mb-12">
 
       <!-- Card 1 -->
