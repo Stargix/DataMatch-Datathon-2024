@@ -161,33 +161,38 @@ function show_team_skeleton() {
 
 var users = [];
 
-function show_real_results(users) {
+function show_real_results(participants) {
 
-    document.getElementById("skeleton_page").style.display = "none";
+  document.getElementById("skeleton_page").style.display = "none";
 
-    // Loop through the users and update the pre-existing cards
-    users.slice(1, 4).forEach((user, index) => {
-        const card = document.getElementById(`user_card_${index + 2}`);
-        const avatar = document.getElementById(`user_avatar_${index + 2}`);
-        const name = document.getElementById(`user_name_${index + 2}`);
-        const description = document.getElementById(`user_description_${index + 2}`);
+  // First card is filled with sent_json data
+  document.getElementById("user_avatar_1").src = `https://avatar.oxro.io/avatar.svg?name=${sent_json.name}`;
+  document.getElementById("user_name_1").textContent = sent_json.name;
+  document.getElementById("user_description_1").textContent = sent_json.preferred_role;
 
-        avatar.src = `https://avatar.oxro.io/avatar.svg?name=${encodeURIComponent(user.name)}`;
-        name.textContent = user.name;
-        description.textContent = user.preferred_role;
-    });
+  // Popover for first card
+  document.getElementById("user_age_1").textContent = `Age: ${sent_json.age}`;
+  document.getElementById("user_year_1").textContent = `Year of Study: ${sent_json.year_of_study}`;
+  document.getElementById("user_role_1").textContent = `Role: ${sent_json.preferred_role}`;
+  document.getElementById("user_hackathons_1").textContent = `Hackathons Done: ${sent_json.hackathons_done}`;
 
-    // Update the first card with the sent_json data
-    const firstCard = document.getElementById('user_card_1');
-    const firstAvatar = document.getElementById('user_avatar_1');
-    const firstName = document.getElementById('user_name_1');
-    const firstDescription = document.getElementById('user_description_1');
+  // Fill remaining cards with data from participants array
+  for (let i = 0; i < 2; i++) {
+    const participant = participants[i];
+    const cardId = i + 2; // To target user_card_2 and user_card_3
 
-    firstAvatar.src = `https://avatar.oxro.io/avatar.svg?name=${encodeURIComponent(sent_json.name)}`;
-    firstName.textContent = sent_json.name;
-    firstDescription.textContent = sent_json.preferred_role;
+    document.getElementById(`user_avatar_${cardId}`).src = `https://avatar.oxro.io/avatar.svg?name=${participant.name}`;
+    document.getElementById(`user_name_${cardId}`).textContent = participant.name;
+    document.getElementById(`user_description_${cardId}`).textContent = participant.preferred_role;
 
-    document.getElementById("real_results_page").style.display = "block";
-    
-      //columnas_seleccionadas = ["id", "name", "age", "year_of_study", "university", "interests", "preferred_role", "experience_level", "hackathons_done", "objective", "introduction", "technical_project", "fun_fact", "availability","interest_in_challenges" ]
+    // Popover for other cards
+    document.getElementById(`user_age_${cardId}`).textContent = `Age: ${participant.age}`;
+    document.getElementById(`user_year_${cardId}`).textContent = `Year of Study: ${participant.year_of_study}`;
+    document.getElementById(`user_role_${cardId}`).textContent = `Role: ${participant.preferred_role}`;
+    document.getElementById(`user_hackathons_${cardId}`).textContent = `Hackathons Done: ${participant.hackathons_done}`;
+  }
+
 }
+
+
+
