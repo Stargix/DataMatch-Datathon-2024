@@ -83,6 +83,8 @@ function getAge(dateString) {
     return age;
 }
 
+var sent_json;
+
 // Save the data and send to server for teammates formation
 function send_form() {
 
@@ -139,6 +141,8 @@ function send_form() {
 
     };
 
+    sent_json = participant_info;
+
     console.log(participant_info);
 
     // DESIGN
@@ -150,4 +154,37 @@ function send_form() {
     document.getElementById("team_building_form").style.display = "none";
     document.getElementById("loader_spinner").style.display = "flex";
 
+}
+
+
+
+var users = [];
+
+function show_real_results(users) {
+
+    document.getElementById("skeleton_results_cards").style.display = "none";
+
+    // Loop through the users and update the pre-existing cards
+    users.slice(1, 4).forEach((user, index) => {
+        const card = document.getElementById(`user_card_${index + 2}`);
+        const avatar = document.getElementById(`user_avatar_${index + 2}`);
+        const name = document.getElementById(`user_name_${index + 2}`);
+        const description = document.getElementById(`user_description_${index + 2}`);
+
+        avatar.src = `https://avatar.oxro.io/avatar.svg?name=${encodeURIComponent(user.name)}`;
+        name.textContent = user.name;
+        description.textContent = user.preferred_role;
+    });
+
+    // Update the first card with the sent_json data
+    const firstCard = document.getElementById('user_card_1');
+    const firstAvatar = document.getElementById('user_avatar_1');
+    const firstName = document.getElementById('user_name_1');
+    const firstDescription = document.getElementById('user_description_1');
+
+    firstAvatar.src = `https://avatar.oxro.io/avatar.svg?name=${encodeURIComponent(sent_json.name)}`;
+    firstName.textContent = sent_json.name;
+    firstDescription.textContent = sent_json.preferred_role;
+    
+      //columnas_seleccionadas = ["id", "name", "age", "year_of_study", "university", "interests", "preferred_role", "experience_level", "hackathons_done", "objective", "introduction", "technical_project", "fun_fact", "availability","interest_in_challenges" ]
 }
