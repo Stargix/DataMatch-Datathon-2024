@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const personas = [
-      { id: 0, title: "Persona 1", icon: "⚙️" },
-      { id: 1, title: "Persona 2", icon: "⭐" },
-      { id: 2, title: "Persona 3", icon: "⚡" },
-      { id: 3, title: "Persona 4", icon: "💎" },
-      { id: 4, title: "Persona 5", icon: "🔧" },
+      { id: 0, title: "Persona 1", icon: "🧑‍🦱" },
+      { id: 1, title: "Persona 2", icon: "👩‍🦰" },
+      { id: 2, title: "Persona 3", icon: "👩‍🦱" },
+      { id: 3, title: "Persona 4", icon: "👩🏾‍🦱" },
+      { id: 4, title: "Persona 5", icon: "🧑‍🦰" },
     ];
   
     let selectedCard = 2;
@@ -43,16 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
             .join("")}
         </div>
         <div class="text-center space-y-6 fade-in">
-          <h1 class="text-4xl md:text-5xl font-serif font-medium text-gray-900">Choose your persona</h1>
+          <h1 class="text-4xl md:text-5xl font-serif font-medium text-gray-900">Create a nice team</h1>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Select a persona that best represents you. Customize your experience to match your style and preferences.
+            Answer some questions and let us find some amazing teammates for this Datathon
           </p>
           <div class="flex flex-col items-center gap-2">
-            <button class="group relative inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-3 text-lg font-medium text-white transition-transform hover:scale-105">
+            <button onclick="start_team_form();" class="group relative inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-3 text-lg font-medium text-white transition-transform hover:scale-105">
               Let's Go
-              <span class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1">➡️</span>
             </button>
-            <span class="text-sm text-gray-500">takes ~4 minutes</span>
+            <span class="text-sm text-gray-500">takes ~6 minutes</span>
           </div>
         </div>
       `;
