@@ -8,6 +8,7 @@ from flask import Flask, jsonify, request
 import ast
 import uuid
 import sklearn.preprocessing as skpre
+from ai_agent import objectives
 
 df = pd.read_excel('datathon_participants_processed.xlsx')
 def info_group(user_profile):
@@ -18,8 +19,6 @@ def info_group(user_profile):
     recommended_items = list(enumerate(similarities[0]))
     recommended_items = sorted(recommended_items, key=lambda x: x[1], reverse=True)
 
-    top_4_items = recommended_items[:16]
-
     top_4_items_ids = [df.iloc[recommended_items[i][0] + 1, 0] for i in range(16)]
     items_caracteristicas = []
 
@@ -27,6 +26,12 @@ def info_group(user_profile):
         item_caracteristicas = caracteriasticas(x)
         items_caracteristicas.append(item_caracteristicas)
     items_caracteristicas_json = json.dumps(items_caracteristicas, ensure_ascii=False, indent=4)
+
+    top_4_items_caracteristicas = items_caracteristicas[:4]
+    answer = objectives(str(top_4_items_caracteristicas))
+    items_caracteristicas.append(answer)
+    items_caracteristicas_json = json.dumps(items_caracteristicas, ensure_ascii=False, indent=4)
+
     return items_caracteristicas_json
 
 
@@ -55,7 +60,6 @@ def matching(text):
     # Binarizar la columna de intereses
     #df_user = pd.get_dummies(df_user, columns=['preferred_languages', 'interests', 'availability'], dtype=int)
 
-    print(df_user)
     df_user['preferred_team_size'] = df_user['preferred_team_size'].astype(int) / 4
     df_user['hackathons_done'] = df_user['hackathons_done'].astype(int) / 9
     df_user['age'] = df_user['age'].astype(int) / 8
@@ -123,7 +127,7 @@ text = """{'name': 'Markus Urban', 'age': 19, 'email': 'markus.urban@estudiantat
 """
 
 
-#print(matching(text))
+matching(text)
 
 # Compare columns of df_user and df
 

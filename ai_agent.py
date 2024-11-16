@@ -19,7 +19,7 @@ def objectives(mensaje_usuario):
             messages=[
                 {
                     "role": "user",
-                    "content": f"Given the following objectives of a Hackathon participant, classify it in categories of interests. Return single word caracteristhics in a list, the options are theese, they MUST be strings [Competitive, Ambitious, Innovative, Gamer, Learner, Fun, Social, Problem-Solving, Creativity, Collaborative, Interactive, Passionate, Enthusiastic]: Here is the message: {mensaje_usuario}"
+                    "content": f"Given the following users of a team in a Hackathon, explain why they are similar users. List the most significative characteristics. [1.,2.,3...] Explain it to the user like he is included: Here are the users: {mensaje_usuario}"
                 }
             ],
             model="llama3-groq-70b-8192-tool-use-preview",
@@ -29,13 +29,8 @@ def objectives(mensaje_usuario):
         )
         
         response = chat_completion.choices[0].message.content
-        response_list = response.strip().split(", ")
-
-        for i in response_list:
-            if i not in test:
-                response_list.remove(i)
-
-        return response_list
+        
+        return response
        
     except Exception as e:
         print(f"Error processing message: {e}")
