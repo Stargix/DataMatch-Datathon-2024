@@ -37,6 +37,7 @@ def get_recommendations():
     'objective': 'onn', 'interest_in_challenges': ['AED Challenge'], 'friend_registration': [], 'preferred_team_size': '4', 'availability': ['Saturday morning', 'Saturday afternoon', 'Saturday night', 'Sunday morning'], 'introduction': 'myself', 'technical_project':
     'cati', 'future_excitement': 'musicals', 'fun_fact': "I'm happy"}
     """
+    
     # User preferences (JSON)
     user_json = request.get_json()
     

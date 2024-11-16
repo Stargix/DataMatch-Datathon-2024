@@ -10,7 +10,7 @@
 function go_to_team_form() {
 
     document.getElementById("dashboard").style.display = "none";
-    document.body.classList = "min-h-screen bg-gradient-to-b from-white to-purple-50 p-4 flex flex-col items-center justify-center";
+    //document.body.classList = "min-h-screen bg-gradient-to-b from-white to-purple-50 p-4 flex flex-col items-center justify-center";
     document.getElementById("app").style.display = "block";
 
 }
@@ -19,6 +19,8 @@ function go_to_team_form() {
 function start_team_form() {
 
     document.getElementById("app").style.display = "none";
+    document.body.classList = "min-h-screen bg-gradient-to-br from-teal-50 to-white p-4 md:p-8";
+    document.getElementById("team_building_form").style.display = "block";
 
 }
 
