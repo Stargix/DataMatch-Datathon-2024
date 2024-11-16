@@ -310,6 +310,97 @@
 
       </div>
 
+      <div id="form_step_4">
+       
+        <!-- Objective Text Area -->
+        <div style="margin-top: 20px;">
+          <label for="objective" class="block text-sm font-medium text-gray-700">
+            What are you looking for at Datathon FME 2024?
+          </label>
+          <textarea
+            id="objective"
+            rows="3"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
+            placeholder="Describe your objectives for participating in the Datathon..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- About Yourself Text Area -->
+        <div style="margin-top: 20px;">
+          <label for="aboutYourself" class="block text-sm font-medium text-gray-700">
+            Tell us about yourself
+          </label>
+          <textarea
+            id="aboutYourself"
+            rows="3"
+            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
+            placeholder="Share a bit about your background, skills, and interests..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Preferred Team Size Select -->
+        <div style="margin-top: 20px;">
+          <label for="teamSize" class="block text-sm font-medium text-gray-700">
+            Preferred Team Size
+          </label>
+          <select
+            id="teamSize"
+            class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md"
+            required
+          >
+            <option value="">Select team size</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+
+        <!-- Challenge selection -->
+        <div class="space-y-4" style="margin-top: 20px;">
+          <label class="block text-sm font-medium text-gray-700">
+            Select your preferred challenge:
+          </label>
+          <div class="flex flex-wrap gap-2">
+            <!-- Mango Challenge -->
+            <button
+              id="challenge-mango"
+              class="challenge-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700"
+              onclick="toggleChallengeSelection('Mango')"
+            >
+              <img src="./img/logos/mango.png" alt="Mango Logo" class="inline-block w-6 h-6 mr-2" />
+              Mango
+            </button>
+            
+            <!-- Restbin.ai Challenge -->
+            <button
+              id="challenge-restbin"
+              class="challenge-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700"
+              onclick="toggleChallengeSelection('Restb.ai')"
+            >
+              <img src="./img/logos/restbai.png" alt="Restb.ai Logo" class="inline-block w-6 h-6 mr-2" />
+              Restb.ai
+            </button>
+
+            <!-- FME Challenge -->
+            <button
+            id="challenge-fme"
+            class="challenge-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700"
+            onclick="toggleChallengeSelection('FME')"
+          >
+            <img src="./img/logo.png" alt="FME Logo" class="inline-block w-6 h-6 mr-2" />
+            Own challenge
+          </button>
+
+
+          </div>
+        </div>
+
+      </div>
+
+
       <div class="flex justify-between pt-6">
         <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
           Previous step

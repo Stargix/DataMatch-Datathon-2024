@@ -25,8 +25,8 @@ function start_team_form() {
 
 
 // FORM TITLES AND SUBTITLES
-let form_section_titles = ["Participant Information", "Tell us about your preferences", "Tell us about your skills"];
-let form_section_subtitles = ["Let's start with some basic information", "Help us customize your experience", "Select all programming languages you're proficient in"]
+let form_section_titles = ["Participant Information", "Tell us about your preferences", "Tell us about your skills", "More about yourself"];
+let form_section_subtitles = ["Let's start with some basic information", "Help us customize your experience", "Select all programming languages you're proficient in", "Please tell us more about your objectives and yourself for the Datathon"]
 
 
 var form_page = 0;
