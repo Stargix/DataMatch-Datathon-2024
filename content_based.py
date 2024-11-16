@@ -31,6 +31,12 @@ app = Flask(__name__)
 @app.route('/recommendations', methods=['POST'])
 def get_recommendations():
 
+    """
+    {'name': 'Markus Urban', 'age': 19, 'email': 'markus.urban@estudiantat.upc.edu', 'year_of_study': '2nd year', 'shirt_size': 'M', 'university': 'Universitat Politècnica de Catalunya (UPC)', 'dietary_restrictions': 'None', 'preferred_languages': ['English',
+    'Spanish'], 'programming_skills': {'JavaScript': 4, 'Python': 4, 'HTML/CSS': 4, 'Flask': 4}, 'experience_level': 'Intermediate', 'hackathons_done': '2', 'interests': ['Productivity', 'Enterprise', 'Music/Art', 'Communication'], 'preferred_role': 'design',
+    'objective': 'onn', 'interest_in_challenges': ['AED Challenge'], 'friend_registration': [], 'preferred_team_size': '4', 'availability': ['Saturday morning', 'Saturday afternoon', 'Saturday night', 'Sunday morning'], 'introduction': 'myself', 'technical_project':
+    'cati', 'future_excitement': 'musicals', 'fun_fact': "I'm happy"}
+    """
     # User preferences (JSON)
     user_json = request.get_json()
     
