@@ -9,10 +9,20 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.15/base.min.css">
   <style>
+
+    @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    .selected_team_card {
+      background-color:  rgb(33 145 140) !important;
     }
 
     @keyframes fadeIn {
@@ -26,6 +36,102 @@
 <body class="min-h-screen bg-gradient-to-b from-white to-purple-50 p-4 flex flex-col items-center justify-center">
   
   <div id="app" class="w-full max-w-6xl mx-auto"></div>
+
+  <div class="container mx-auto px-16">
+    <!-- Header -->
+    <header class="flex items-center justify-between mb-12">
+      <img src="./img/logo.png" style="width: 130px;">
+      <div class="flex items-center gap-4">
+        <div id="currentTime" class="text-sm text-gray-500 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
+          Loading...
+        </div>
+        <button class="p-2 hover:bg-white/50 rounded-full transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m6.938-6.5L16.5 8M9 12a9 9 0 100-18 9 9 0 000 18z" />
+          </svg>
+        </button>
+        <button class="p-2 hover:bg-white/50 rounded-full transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4l1.09-2.17A5 5 0 0112 4h8m-5 0v8m4-4H4" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Welcome Message -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-serif font-medium text-gray-900 mb-4">Good Morning! 👋</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Manage your registration and team members</p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Upcoming Card -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-4 h-4 bg-orange-100 rounded-full"></div>
+          <h2 class="font-semibold">Upcoming</h2>
+        </div>
+        <div class="space-y-4">
+          <div class="group cursor-pointer">
+            <div class="text-sm font-medium">14:00 PM • Presentations & Demos</div>
+            <div class="text-sm text-gray-500">Conference Room A</div>
+          </div>
+          <div class="group cursor-pointer">
+            <div class="text-sm font-medium">17:00 PM • Awards Ceremony 🥇</div>
+            <div class="text-sm text-gray-500">Conference Hall</div>
+          </div>
+          <div class="group cursor-pointer">
+            <div class="text-sm font-medium">18:00 PM • Farewell</div>
+            <div class="text-sm text-gray-500">FME Building</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Insights Card -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-4 h-4 bg-rose-100 rounded-full"></div>
+          <h2 class="font-semibold">Your team</h2>
+        </div>
+        <div class="space-y-6">
+          <div class="flex flex-col items-center text-center">
+            
+            <img src="./img/team_placeholder.png" class="mb-5 mt-2" style="opacity: 0.45;width: 75%;">
+            <div class="mb-1">
+              <h2 class="text-lg font-semibold">You don’t have a team yet</h2>
+              <p class="text-sm text-gray-500">Start collaborating by creating your first team.</p>
+            </div>
+          </div>
+
+          <button 
+          class="w-full py-2 px-4 mt-4 text-white font-medium bg-[rgb(33,145,140)] rounded-md hover:bg-[rgb(28,126,121)] transition-colors">
+          Build a team
+        </button>
+        </div>
+      </div>
+
+      <!-- Vacation Card -->
+      <div class="p-6 bg-white rounded-lg shadow-md">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-4 h-4 bg-orange-100 rounded-full"></div>
+          <h2 class="font-semibold">Countdown</h2>
+        </div>
+        
+        <div class="relative flex justify-center items-center">
+          <svg class="w-48 h-48 transform -rotate-90">
+            <circle cx="96" cy="96" r="88" class="stroke-gray-300 stroke-[8] fill-none"></circle>
+            <circle style="stroke:rgb(33 145 140);" cx="96" cy="96" r="88" class="stroke-[8] fill-none" style="stroke-dasharray: 853; stroke-dashoffset: 138;"></circle>
+          </svg>
+          <div class="absolute flex flex-col items-center">
+            <div class="text-5xl font-semibold">0</div>
+            <div class="text-sm text-gray-500">Days left</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </body>
 </html>

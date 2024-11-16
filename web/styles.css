@@ -5,9 +5,13 @@
     --gray-900: #1f2937;
   }
   
+
+  @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins" !important, sans-serif;
   }
   
   .min-h-screen {
@@ -139,3 +143,4 @@
     transform: translateX(0.25rem);
   }
   
+

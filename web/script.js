@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div
               class="relative cursor-pointer transition-all duration-300 ${
                 selectedCard === index
-                  ? "bg-gradient-to-b from-purple-400 to-purple-500 scale-110 z-10"
+                  ? "scale-110 z-10 selected_team_card"
                   : "bg-white hover:scale-105"
               } w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 fade-in"
               onclick="selectCard(${index})"
@@ -45,10 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="text-center space-y-6 fade-in">
           <h1 class="text-4xl md:text-5xl font-serif font-medium text-gray-900">Create a nice team</h1>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Answer some questions and let us find some amazing teammates for this Datathon
+            Answer some questions and let us find you some amazing teammates
           </p>
           <div class="flex flex-col items-center gap-2">
-            <button onclick="start_team_form();" class="group relative inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-3 text-lg font-medium text-white transition-transform hover:scale-105">
+            <button style="background-color:rgb(33 145 140);" onclick="start_team_form();" class="group relative inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-3 text-lg font-medium text-white transition-transform hover:scale-105">
               Let's Go
             </button>
             <span class="text-sm text-gray-500">takes ~6 minutes</span>
