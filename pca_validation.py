@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
-from content_based import *
+from content_based_validation import *
 import json 
 
 # Cargar el DataFrame principal
@@ -55,8 +55,8 @@ def visualizar_equipos(json_file, ids, filename='visualizacion_equipos.png'):
     plt.savefig(filename, bbox_inches='tight')  # Guardar la figura con un margen ajustado
     plt.show()
 
-ids, j = get_recommendations() # IDs de los individuos a graficar
-visualizar_equipos(df, ["97a555b7-99a5-4a5e-8f47-631d5507e25a","725b1704-4da0-423d-b51a-b465f2a41906","ae5a6bbe-8911-4195-9589-4ce25d6ddc8e","b8d50918-f0b5-4452-aae3-c097eafd99ab"], filename='visualizacion_equipos.png')  # Puedes cambiar el nombre y formato del archivo
+ids = get_recommendations() # IDs de los individuos a graficar
+visualizar_equipos(df, ids, filename='visualizacion_equipos.png')  # Puedes cambiar el nombre y formato del archivo
 
 
 
