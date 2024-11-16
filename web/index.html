@@ -54,13 +54,13 @@
 
 
     <!-- Success Section -->
-<div id="join_success_section" style="margin-top:110px;" class="hidden w-full bg-green-100 p-4 rounded-lg shadow-md">
+<div id="join_success_section" style="margin-top:130px;" class="hidden w-full bg-green-100 p-4 rounded-lg shadow-md">
   <div class="flex items-center justify-between">
     <div class="flex items-center">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 11l3 3L22 4"></path>
       </svg>
-      <p id="join_success_message" class="text-xl font-semibold text-green-800">You have successfully joined a team!</p>
+      <p id="join_success_message" style="line-height: 2.5;" class="text-xl font-semibold text-green-800">You have successfully joined a team!</p>
     </div>
     <button onclick="closeSuccessSection()" class="text-green-600 font-bold">Close</button>
   </div>
@@ -575,8 +575,12 @@
       </p>
 
     <!-- Find Another Button -->
-    <button onclick="another_team();" style="margin-right:8px;" class="group relative inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-lg font-medium text-gray-900 transition-transform hover:scale-105 hover:bg-gray-50 border border-gray-300" onclick="findAnother();">
+    <button onclick="another_team();" style="margin-right:8px;background-color:rgb(33 145 140);color:white;" class="group relative inline-flex items-center justify-center rounded-full px-8 py-3 text-lg font-medium text-gray-900 transition-transform hover:scale-105 hover:bg-gray-50 border border-gray-300">
       Find Another
+    </button>
+
+    <button onclick="explain_team();" style="margin-left:8px;margin-right:8px;" class="group relative inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-lg font-medium text-gray-900 transition-transform hover:scale-105 hover:bg-gray-50 border border-gray-300">
+      Explain why
     </button>
 
     <button style="background-color:rgb(33 145 140);margin-left:8px;" onclick="joinTeam();" class="group relative inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-3 text-lg font-medium text-white transition-transform hover:scale-105">

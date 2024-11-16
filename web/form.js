@@ -241,9 +241,12 @@ function another_team() {
 
 
 
+// Resposta explicació
+// result_json[13]["answer"]
+
 function joinTeam() {
 
-    document.getElementById("spinner_text").innerHTML = result_json[13]["answer"];
+    document.getElementById("spinner_text").innerHTML = "Saving your team...";
     document.getElementById("real_results_page").style.display = "none";
     document.getElementById("loader_spinner").style.display = "flex";
 
@@ -271,4 +274,16 @@ function joinTeam() {
 
 function closeSuccessSection() {
     document.getElementById("join_success_section").classList.add("hidden");
+    document.getElementById("real_results_page").style.display = "block";
   }
+
+
+
+function explain_team() {
+
+    document.getElementById("real_results_page").style.display = "none";
+    document.getElementById("join_success_section").classList.remove("hidden");
+    document.getElementById("join_success_message").innerHTML = result_json[16]["answer"];
+    document.getElementById("explanation_page").style.display = "block";
+
+}
