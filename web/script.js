@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("DOMContentLoaded", function() {
     const progressBar = document.getElementById("progressBar");
-    const progress = 0; // Step 3 of 4 = 75%
+    const progress = 10; // Step 3 of 4 = 75%
     progressBar.style.width = `${progress}%`;
   
     const roleButtons = document.querySelectorAll('.role-button');
@@ -123,6 +123,58 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     updateButtonStyles('.interest-button', interests);
   }
+
+
+
+  // Arrays to keep track of selected items
+  let selectedLanguages = [];
+  let selectedStatements = [];
+  let selectedYears = [];
+
+  // Function to toggle the selection state of a programming language
+  function toggleLanguage(language) {
+    if (selectedLanguages.includes(language)) {
+      selectedLanguages = selectedLanguages.filter(l => l !== language);
+    } else {
+      selectedLanguages.push(language);
+    }
+    updateButtonStyles('.language-button', selectedLanguages);
+  }
+
+  // Function to toggle the selection state of a statement
+  function toggleStatement(statement) {
+    if (selectedStatements.includes(statement)) {
+      selectedStatements = selectedStatements.filter(s => s !== statement);
+    } else {
+      selectedStatements.push(statement);
+    }
+    updateButtonStyles('.statement-button', selectedStatements);
+  }
+
+
+  // Array to keep track of selected experience levels
+let selectedExperienceLevels = [];
+
+// Function to toggle the selection state of experience level
+function toggleExperience(level) {
+  if (selectedExperienceLevels.includes(level)) {
+    selectedExperienceLevels = selectedExperienceLevels.filter(l => l !== level);
+  } else {
+    selectedExperienceLevels.push(level);
+  }
+  updateButtonStyles('.experience-button', selectedExperienceLevels);
+}
+
+
+function toggleYear(year) {
+  if (selectedYears.includes(year)) {
+    selectedYears = selectedYears.filter(y => y !== year);
+  } else {
+    selectedYears.push(year);
+  }
+  updateButtonStyles('.year-button', selectedYears);
+}
+  
 
   function updateButtonStyles(selector, selectedItems) {
     document.querySelectorAll(selector).forEach((button) => {

@@ -5,6 +5,8 @@
 // Let's see how much sleep I get today...
 
 
+// [AMP] Programming languages could be rated by level
+
 function go_to_team_form() {
 
     document.getElementById("dashboard").style.display = "none";
@@ -23,5 +25,25 @@ function start_team_form() {
 
 
 // FORM TITLES AND SUBTITLES
-let form_section_titles = ["Participant Information", ""];
-let form_section_subtitles = ["Let's start with some basic information"]
+let form_section_titles = ["Participant Information", "Tell us about your preferences", "Tell us about your skills"];
+let form_section_subtitles = ["Let's start with some basic information", "Help us customize your experience", "Select all programming languages you're proficient in"]
+
+
+var form_page = 0;
+var form_max_pages = 4;
+var progress = 10;
+
+function form_next_button() {
+
+    form_page++;
+    document.getElementById("step_indicator").innerHTML = "Step " + (form_page + 1) + " from 4";
+    document.getElementById("form_step_" + (form_page)).style.display = "none";
+    document.getElementById("form_step_" + (form_page+1)).style.display = "block";
+    document.getElementById("form_section_title").innerHTML = form_section_titles[form_page];
+    document.getElementById("form_section_subtitle").innerHTML = form_section_subtitles[form_page];
+
+    // Update progress bar
+    const progressBar = document.getElementById("progressBar");
+    progress += 10;
+    progressBar.style.width = `${progress}%`;
+}
