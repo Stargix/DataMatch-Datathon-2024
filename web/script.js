@@ -208,3 +208,33 @@ function toggleChallengeSelection(challenge) {
       button.classList.toggle('text-white', selectedItems.includes(item));
     });
   }
+
+
+
+  let selectedAvailability = [
+    "Saturday morning",
+    "Saturday afternoon",
+    "Saturday night",
+    "Sunday morning",
+    "Sunday afternoon",
+  ];
+  
+  function toggleAvailability(slot) {
+    if (selectedAvailability.includes(slot)) {
+      selectedAvailability = selectedAvailability.filter((s) => s !== slot);
+    } else {
+      selectedAvailability.push(slot);
+    }
+    updateAvailabilityButtonStyles('.availability-button', selectedAvailability);
+  }
+
+
+  function updateAvailabilityButtonStyles(selector, selectedItems) {
+    document.querySelectorAll(selector).forEach((button) => {
+      const item = button.innerText;
+      button.classList.toggle('bg-teal-600', selectedItems.includes(item));
+      button.classList.toggle('text-white', selectedItems.includes(item));
+      button.classList.toggle('bg-white', !selectedItems.includes(item));
+      button.classList.toggle('text-gray-700', !selectedItems.includes(item));
+    });
+  }

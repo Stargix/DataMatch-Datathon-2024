@@ -98,6 +98,13 @@ function send_form() {
         year_study += " year";
     }
 
+    if (dietaryRestrictions.length == 0) {
+        dietaryRestrictions = "None";
+    }
+
+    // Format selected programming languages
+    var items = selectedLanguages;
+    const dict = Object.fromEntries(items.map(item => [item, 4]));
 
     // Collect all the data
     let participant_info = {
@@ -110,18 +117,18 @@ function send_form() {
         university: document.getElementById("uni").value,
         dietary_restrictions: dietaryRestrictions,
 
+        preferred_languages: ["English", "Spanish"],
 
-        programming_skills: "SEE RESPONSE",
-        experience_level: selectedExperienceLevels,
+        programming_skills: dict,
+        experience_level: selectedExperienceLevels[0],
         hackathons_done: document.getElementById("hackathons").value,
         interests: interests,
         preferred_role: preferred_role,
         objective: document.getElementById("objective").value,
-        interest_in_challenges: selectedChallenge,
-        preferred_languages: selectedLanguages,
+        interest_in_challenges: [selectedChallenge + " Challenge"],
         friend_registration: [],
         preferred_team_size: document.getElementById("teamSize").value,
-        availability: "SEE RESPONSE",
+        availability: selectedAvailability,
 
         introduction: document.getElementById("aboutYourself").value,
         technical_project: document.getElementById("technical-project").value,

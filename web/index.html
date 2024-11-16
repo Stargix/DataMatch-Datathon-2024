@@ -280,12 +280,11 @@
           <button id="language-python" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('Python')">🐍 Python</button>
           <button id="language-java" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('Java')">☕ Java</button>
           <button id="language-cpp" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('C++')">🔧 C++</button>
-          <button id="language-ruby" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('Ruby')">💎 Ruby</button>
-          <button id="language-go" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('Go')">🐹 Go</button>
+          <button id="language-HTML/CSS" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('HTML/CSS')">🌍 HTML/CSS</button>
           <button id="language-rust" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('Rust')">🦀 Rust</button>
           <button id="language-typescript" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('TypeScript')">🔷 TypeScript</button>
-          <button id="language-swift" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('Swift')">🕊️ Swift</button>
-          <button id="language-kotlin" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('Kotlin')">🟣 Kotlin</button>
+          <button id="language-Flask" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('Flask')">🔵 Flask</button>
+          <button id="language-MongoDB" class="language-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleLanguage('MongoDB')">🟢 MongoDB</button>
         </div>
       </div>
 
@@ -389,12 +388,12 @@
 
             <!-- FME Challenge -->
             <button
-            id="challenge-fme"
+            id="challenge-aed"
             class="challenge-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700"
-            onclick="toggleChallengeSelection('FME')"
+            onclick="toggleChallengeSelection('AED')"
           >
             <img src="./img/logo.png" alt="FME Logo" class="inline-block w-6 h-6 mr-2" />
-            FME
+            AED
           </button>
 
 
@@ -404,14 +403,27 @@
       </div>
 
       <div id="form_step_5" style="display: none;">
+
+        <div class="space-y-4">
+          <h3 class="text-sm font-medium text-gray-900">When are you available?</h3>
+          <div class="flex flex-wrap gap-4">
+            <button id="availability-sat-morning" class="availability-button selected px-4 py-2 rounded-full text-sm font-medium border border-gray-300 bg-teal-600 text-white" onclick="toggleAvailability('Saturday morning')">Saturday morning</button>
+            <button id="availability-sat-afternoon" class="availability-button selected px-4 py-2 rounded-full text-sm font-medium border border-gray-300 bg-teal-600 text-white" onclick="toggleAvailability('Saturday afternoon')">Saturday afternoon</button>
+            <button id="availability-sat-night" class="availability-button selected px-4 py-2 rounded-full text-sm font-medium border border-gray-300 bg-teal-600 text-white" onclick="toggleAvailability('Saturday night')">Saturday night</button>
+            <button id="availability-sun-morning" class="availability-button selected px-4 py-2 rounded-full text-sm font-medium border border-gray-300 bg-teal-600 text-white" onclick="toggleAvailability('Sunday morning')">Sunday morning</button>
+            <button id="availability-sun-afternoon" class="availability-button selected px-4 py-2 rounded-full text-sm font-medium border border-gray-300 bg-teal-600 text-white" onclick="toggleAvailability('Sunday afternoon')">Sunday afternoon</button>
+          </div>
+        </div>
+
+
          <!-- Technical Project -->
-  <div>
+  <div style="margin-top: 20px;">
     <label for="technical-project" class="block text-sm font-medium text-gray-700">
       Tell us about a project you’ve enjoyed working on, technical or non-technical.
     </label>
     <textarea
       id="technical-project"
-      rows="4"
+      rows="2"
       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
       placeholder="Describe your favorite project..."
     ></textarea>
@@ -424,7 +436,7 @@
     </label>
     <textarea
       id="future-excitement"
-      rows="4"
+      rows="2"
       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
       placeholder="Share your future aspirations..."
     ></textarea>
@@ -437,7 +449,7 @@
     </label>
     <textarea
       id="fun-fact"
-      rows="4"
+      rows="1"
       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
       placeholder="Share something unique or surprising about yourself..."
     ></textarea>
