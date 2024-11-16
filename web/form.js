@@ -98,6 +98,7 @@ function send_form() {
         year_study += " year";
     }
 
+
     // Collect all the data
     let participant_info = {
         name: document.getElementById("firstName").value + " " + document.getElementById("lastName").value,
