@@ -16,19 +16,15 @@ dff['objective'] = dff['objective'].apply(objectives)
 # Remove unimportant columns
 print(dff['objective'])"""
 
-
 columns_to_drop = ['name', 'email','shirt_size','university','dietary_restrictions','introduction','future_excitement','fun_fact', 'objective', 'technical_project','friend_registration','interest_in_challenges']  # Replace with the names of the columns you wish to remove
 df.drop(columns=columns_to_drop, inplace=True)
 
 # Inspect the DataFrame after removing columns
-#print(df.head())
-
 # Convert interests to binary format
 mlb = skpre.MultiLabelBinarizer()
 interests_binarized = mlb.fit_transform(df['interests'])
 
 #languages_bin = mlb.fit_transform(df['preferred_languages'])
-
 # Create a DataFrame for the binarized interests
 interests_df = pd.DataFrame(interests_binarized, columns=mlb.classes_)
 
@@ -52,24 +48,7 @@ df = pd.concat([df, languages_df], axis=1)
 
 df.drop(columns=['interests','preferred_languages','availability'], inplace=True)
 
-def standardize_skills_json(df, skills_column='programming_skills'):
-    """
-    Standardize and process a JSON skills column for use in content-based filtering.
-    
-    Parameters:
-    -----------
-    df : pandas.DataFrame
-        DataFrame containing the skills column
-    skills_column : str
-        Name of the column containing the JSON skills
-        
-    Returns:
-    --------
-    pandas.DataFrame
-        Processed DataFrame with normalized skills
-    list
-        List of processed skill columns
-    """
+def standardize_skills_json(df, skills_column='programming_skills'):    
     # Create a copy of the original DataFrame
     df_processed = df.copy()
     
