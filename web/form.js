@@ -25,18 +25,18 @@ function start_team_form() {
 
 
 // FORM TITLES AND SUBTITLES
-let form_section_titles = ["Participant Information", "Tell us about your preferences", "Tell us about your skills", "More about yourself"];
-let form_section_subtitles = ["Let's start with some basic information", "Help us customize your experience", "Select all programming languages you're proficient in", "Please tell us more about your objectives and yourself for the Datathon"]
+let form_section_titles = ["Participant Information", "Tell us about your preferences", "Tell us about your skills", "More about yourself", "Almost done!"];
+let form_section_subtitles = ["Let's start with some basic information", "Help us customize your experience", "Select all programming languages you're proficient in", "Please tell us more about your objectives and yourself for the Datathon", "Tell us about your projects, your future, and a fun fact"]
 
 
 var form_page = 0;
-var form_max_pages = 4;
+var form_max_pages = 5;
 var progress = 10;
 
 function form_next_button() {
 
     form_page++;
-    document.getElementById("step_indicator").innerHTML = "Step " + (form_page + 1) + " from 4";
+    document.getElementById("step_indicator").innerHTML = "Step " + (form_page + 1) + " from 5";
     document.getElementById("form_step_" + (form_page)).style.display = "none";
     document.getElementById("form_step_" + (form_page+1)).style.display = "block";
     document.getElementById("form_section_title").innerHTML = form_section_titles[form_page];
@@ -44,6 +44,6 @@ function form_next_button() {
 
     // Update progress bar
     const progressBar = document.getElementById("progressBar");
-    progress += 10;
+    progress += 20;
     progressBar.style.width = `${progress}%`;
 }
