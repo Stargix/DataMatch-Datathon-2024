@@ -145,4 +145,7 @@ function send_form() {
         // Team details
         // Team member details (if enough time)
 
+    document.getElementById("team_building_form").style.display = "none";
+    document.getElementById("loader_spinner").style.display = "flex";
+
 }

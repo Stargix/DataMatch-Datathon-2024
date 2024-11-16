@@ -46,6 +46,7 @@
     }
   </style>
 </head>
+
 <!--  class="min-h-screen bg-gradient-to-b from-white to-purple-50 p-4 flex"-->
 <body class="min-h-screen bg-gradient-to-br from-teal-50 to-white p-4 md:p-8">
   
@@ -150,7 +151,7 @@
     </div>
   </div>
 
-  <div class="mx-auto max-w-2xl bg-white rounded-lg shadow-md overflow-hidden">
+  <div id="team_building_form" style="display: ;" class="mx-auto max-w-2xl bg-white rounded-lg shadow-md overflow-hidden">
     <div class="p-6 space-y-6">
       <div class="space-y-1">
         <div class="flex items-center justify-between">
@@ -436,7 +437,7 @@
     </label>
     <textarea
       id="future-excitement"
-      rows="2"
+      rows="1"
       class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
       placeholder="Share your future aspirations..."
     ></textarea>
@@ -465,6 +466,16 @@
           Next step
         </button>
       </div>
+    </div>
+  </div>
+
+  <div id="loader_spinner" style="display: none;margin-top: 18%;" class="flex flex-col items-center justify-center bg-gradient-to-br from-teal-50 to-white">
+    <div class="flex items-center space-x-2 flex-col">
+      <!-- Spinner -->
+      <div class="loader border-t-teal-600 border-4 border-gray-200 rounded-full w-12 h-12 animate-spin"></div>
+      
+      <!-- Text -->
+      <p class="text-lg font-medium text-gray-900 mt-12">Looking for the best teammates...</p>
     </div>
   </div>
 
