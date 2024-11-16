@@ -1,5 +1,4 @@
 from participant import load_participants
-from rich import print
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from api_users import caracteriasticas
@@ -29,17 +28,20 @@ def info_group(user_profile):
 
 app = Flask(__name__)
 
-@app.route('/recommendations', methods=['GET'])
+@app.route('/recommendations', methods=['POST'])
 def get_recommendations():
 
     # User preferences (JSON)
-    user_json = request.args.get('user-data')
+    user_json = request.get_json()
+    
 
     # ....
 
-    user_profile = df.iloc[0, 2:].values
+    #user_profile = df.iloc[0, 2:].values
     
-    return jsonify(info_group(user_profile))
+    #return jsonify(info_group(user_profile))
+
+    return str(user_json)
 
 if __name__ == '__main__':
     app.run(debug=True)
