@@ -67,3 +67,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const progressBar = document.getElementById("progressBar");
+    const progress = 0; // Step 3 of 4 = 75%
+    progressBar.style.width = `${progress}%`;
+  
+    const roleButtons = document.querySelectorAll('.role-button');
+    roleButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const selectedRole = this.getAttribute('data-role');
+        
+        // Remove active class from all buttons
+        roleButtons.forEach(btn => {
+          btn.classList.remove('bg-teal-600', 'text-white', 'hover:bg-teal-700');
+          btn.classList.add('bg-white', 'text-gray-700', 'hover:bg-gray-50', 'border', 'border-gray-300');
+        });
+  
+        // Add active class to the clicked button
+        this.classList.add('bg-teal-600', 'text-white', 'hover:bg-teal-700');
+        this.classList.remove('bg-white', 'text-gray-700', 'hover:bg-gray-50', 'border', 'border-gray-300');
+      });
+    });
+  });

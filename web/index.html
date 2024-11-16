@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personas Selector</title>
+  <title>FME Datathon - Dashboard</title>
   <script defer src="script.js"></script>
   <script defer src="form.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,17 +33,18 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-white to-purple-50 p-4 flex flex-col items-center justify-center">
+<!--  class="min-h-screen bg-gradient-to-b from-white to-purple-50 p-4 flex"-->
+<body class="min-h-screen bg-gradient-to-br from-teal-50 to-white p-4 md:p-8">
   
-  <div id="app" class="w-full max-w-6xl mx-auto"></div>
+  <div id="app" style="display: none;" class="w-full max-w-6xl mx-auto"></div>
 
-  <div class="container mx-auto px-16">
+  <div id="dashboard" style="display: none;" class="container mx-auto px-16 mt-6">
     <!-- Header -->
     <header class="flex items-center justify-between mb-12">
       <img src="./img/logo.png" style="width: 130px;">
       <div class="flex items-center gap-4">
         <div id="currentTime" class="text-sm text-gray-500 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
-          Loading...
+          Back to main page
         </div>
         <button class="p-2 hover:bg-white/50 rounded-full transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,6 +74,10 @@
           <h2 class="font-semibold">Upcoming</h2>
         </div>
         <div class="space-y-4">
+          <div class="group cursor-pointer">
+            <div class="text-sm font-medium">12:30 PM • Sumbissions</div>
+            <div class="text-sm text-gray-500">All Participants</div>
+          </div>
           <div class="group cursor-pointer">
             <div class="text-sm font-medium">14:00 PM • Presentations & Demos</div>
             <div class="text-sm text-gray-500">Conference Room A</div>
@@ -104,7 +109,7 @@
             </div>
           </div>
 
-          <button 
+          <button onclick="go_to_team_form();" 
           class="w-full py-2 px-4 mt-4 text-white font-medium bg-[rgb(33,145,140)] rounded-md hover:bg-[rgb(28,126,121)] transition-colors">
           Build a team
         </button>
@@ -132,6 +137,71 @@
     </div>
   </div>
 
+  <div class="mx-auto max-w-2xl bg-white rounded-lg shadow-md overflow-hidden">
+    <div class="p-6 space-y-6">
+      <div class="space-y-1">
+        <div class="flex items-center justify-between">
+          <div class="text-sm text-gray-500">Step 1 of 4</div>
+          <div class="w-32 bg-gray-200 rounded-full h-2">
+            <div id="progressBar" class="bg-teal-600 h-2 rounded-full"></div>
+          </div>
+        </div>
+        <h2 style="margin-top: 20px;" class="text-2xl font-bold text-gray-900">Participant Information</h2>
+        <p class="text-gray-500">
+          Please provide your details for the hackathon registration.
+        </p>
+      </div>
+      <div class="space-y-4" style="margin-top: 30px;">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+            <input type="text" id="firstName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" required />
+          </div>
+          <div>
+            <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+            <input type="text" id="lastName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" required />
+          </div>
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" required />
+        </div>
+        <div>
+          <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+          <input type="date" id="dob" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm" required />
+        </div>
+        <!--<div>
+          <label for="hackathons" class="block text-sm font-medium text-gray-700">Hackathons Done</label>
+          <select id="hackathons" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md" required>
+            <option value="">Select an option</option>
+            <option value="None">None</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="4+">4+</option>
+          </select>
+        </div>-->
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-sm font-medium text-gray-900">What's your preferred role?</h3>
+        <div class="flex flex-wrap gap-2">
+          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Analysis">📊 Analysis</button>
+          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Visualization">📈 Visualization</button>
+          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Development">💻 Development</button>
+          <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Design">🎨 Design</button>
+        </div>
+      </div>
+      <div class="flex justify-between pt-6">
+        <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+          Previous step
+        </button>
+        <button class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+          Next step
+        </button>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
