@@ -25,6 +25,19 @@
       background-color:  rgb(33 145 140) !important;
     }
 
+    /* Button styles for selected and unselected states */
+    .selected {
+      background-color: #0f766e; /* Teal color */
+      color: white;
+      border-color: #0f766e;
+    }
+
+    .unselected {
+      background-color: white;
+      color: #4b5563; /* Gray color */
+      border-color: #d1d5db; /* Border gray */
+    }
+
     @keyframes fadeIn {
       to {
         opacity: 1;
@@ -151,6 +164,8 @@
           Please provide your details for the hackathon registration.
         </p>
       </div>
+
+      <div id="form_step_1" style="display: none;">
       <div class="space-y-4" style="margin-top: 30px;">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
@@ -183,7 +198,7 @@
           </select>
         </div>-->
       </div>
-      <div class="space-y-4">
+      <div class="space-y-4" style="margin-top: 20px;">
         <h3 class="text-sm font-medium text-gray-900">What's your preferred role?</h3>
         <div class="flex flex-wrap gap-2">
           <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Analysis">📊 Analysis</button>
@@ -192,6 +207,54 @@
           <button class="role-button rounded-full px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" data-role="Design">🎨 Design</button>
         </div>
       </div>
+      </div>
+
+      <div id="form_step_2">
+              <!-- Shirt Size Selection -->
+      <div class="space-y-4">
+        <h3 class="text-sm font-medium text-gray-900">What's your preferred shirt size?</h3>
+        <div class="flex flex-wrap gap-2">
+          <button id="size-XS" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('XS')">XS</button>
+          <button id="size-S" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('S')">S</button>
+          <button id="size-M" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('M')">M</button>
+          <button id="size-L" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('L')">L</button>
+          <button id="size-XL" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('XL')">XL</button>
+          <button id="size-XXL" class="size-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="setShirtSize('XXL')">XXL</button>
+        </div>
+      </div>
+
+      <!-- Dietary Restrictions Selection -->
+      <div class="space-y-4" style="margin-top: 20px;">
+        <h3 class="text-sm font-medium text-gray-900">Do you have any dietary restrictions?</h3>
+        <div class="flex flex-wrap gap-2">
+          <button id="diet-vegetarian" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Vegetarian')">🥕 Vegetarian</button>
+          <button id="diet-vegan" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Vegan')">🌱 Vegan</button>
+          <button id="diet-gluten" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Gluten-free')">🌾 Gluten-free</button>
+          <button id="diet-lactose" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Lactose-free')">🥛 Lactose-free</button>
+          <button id="diet-nuts" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Nut allergy')">🥜 Nut allergy</button>
+          <button id="diet-kosher" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Kosher')">✡️ Kosher</button>
+          <button id="diet-halal" class="dietary-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleDietary('Halal')">☪️ Halal</button>
+        </div>
+      </div>
+
+      <!-- Interests Selection -->
+      <div class="space-y-4" style="margin-top:20px;">
+        <h3 class="text-sm font-medium text-gray-900">What are your interests?</h3>
+        <div class="flex flex-wrap gap-2">
+          <button id="interest-technology" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Technology')">💻 Technology</button>
+          <button id="interest-sports" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Sports')">⚽ Sports</button>
+          <button id="interest-music" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Music')">🎵 Music</button>
+          <button id="interest-art" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Art')">🎨 Art</button>
+          <button id="interest-travel" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Travel')">✈️ Travel</button>
+          <button id="interest-cooking" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Cooking')">👨‍🍳 Cooking</button>
+          <button id="interest-reading" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Reading')">📚 Reading</button>
+          <button id="interest-gaming" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Gaming')">🎮 Gaming</button>
+          <button id="interest-fitness" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Fitness')">🏋️ Fitness</button>
+          <button id="interest-photography" class="interest-button unselected px-4 py-2 rounded-full text-sm font-medium border text-gray-700" onclick="toggleInterest('Photography')">📷 Photography</button>
+        </div>
+      </div>
+      </div>
+
       <div class="flex justify-between pt-6">
         <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
           Previous step

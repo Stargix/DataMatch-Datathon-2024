@@ -91,3 +91,43 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+
+
+  let shirtSize = '';
+  let dietaryRestrictions = [];
+  let interests = [];
+
+  function setShirtSize(size) {
+    shirtSize = size;
+    document.querySelectorAll('.size-button').forEach((button) => {
+      button.classList.toggle('bg-teal-600', button.innerText === size);
+      button.classList.toggle('text-white', button.innerText === size);
+    });
+  }
+
+  function toggleDietary(restriction) {
+    if (dietaryRestrictions.includes(restriction)) {
+      dietaryRestrictions = dietaryRestrictions.filter(r => r !== restriction);
+    } else {
+      dietaryRestrictions.push(restriction);
+    }
+    updateButtonStyles('.dietary-button', dietaryRestrictions);
+  }
+
+  function toggleInterest(interest) {
+    if (interests.includes(interest)) {
+      interests = interests.filter(i => i !== interest);
+    } else {
+      interests.push(interest);
+    }
+    updateButtonStyles('.interest-button', interests);
+  }
+
+  function updateButtonStyles(selector, selectedItems) {
+    document.querySelectorAll(selector).forEach((button) => {
+      const item = button.innerText.split(' ')[1]; // Assumes the emoji is first
+      button.classList.toggle('bg-teal-600', selectedItems.includes(item));
+      button.classList.toggle('text-white', selectedItems.includes(item));
+    });
+  }

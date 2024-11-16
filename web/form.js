@@ -19,3 +19,9 @@ function start_team_form() {
     document.getElementById("app").style.display = "none";
 
 }
+
+
+
+// FORM TITLES AND SUBTITLES
+let form_section_titles = ["Participant Information", ""];
+let form_section_subtitles = ["Let's start with some basic information"]
