@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from api_users import caracteriasticas
 import json
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 df = pd.read_excel('datathon_participants_processed.xlsx')
 def info_group(user_profile):
@@ -31,7 +31,14 @@ app = Flask(__name__)
 
 @app.route('/recommendations', methods=['GET'])
 def get_recommendations():
+
+    # User preferences (JSON)
+    user_json = request.args.get('user-data')
+
+    # ....
+
     user_profile = df.iloc[0, 2:].values
+    
     return jsonify(info_group(user_profile))
 
 if __name__ == '__main__':
