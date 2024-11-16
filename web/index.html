@@ -52,9 +52,24 @@
   
   <img src="./img/logo.png" style="width: 130px;position: absolute;top: 40px;left: 50px;">
 
+
+    <!-- Success Section -->
+<div id="join_success_section" style="margin-top:110px;" class="hidden w-full bg-green-100 p-4 rounded-lg shadow-md">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 11l3 3L22 4"></path>
+      </svg>
+      <p id="join_success_message" class="text-xl font-semibold text-green-800">You have successfully joined a team!</p>
+    </div>
+    <button onclick="closeSuccessSection()" class="text-green-600 font-bold">Close</button>
+  </div>
+</div>
+
+
   <div id="app" style="display: none;margin-top:100px;" class="w-full max-w-6xl mx-auto"></div>
 
-  <div id="dashboard" style="display: ;" class="container mx-auto px-16 mt-6">
+  <div id="dashboard" style="display: none;" class="container mx-auto px-16 mt-6">
     <!-- Header -->
     <header class="flex items-center justify-between mb-12">
       <div class="flex items-center gap-4" style="margin-left: auto;">
@@ -107,14 +122,21 @@
         <div class="space-y-6">
           <div class="flex flex-col items-center text-center">
             
-            <img src="./img/team_placeholder.png" class="mb-5 mt-2" style="opacity: 0.45;width: 75%;">
+            <div id="team_images_real" class="flex justify-center gap-2 mb-5 mt-2">
+              <div class="w-16 h-16 rounded-md flex justify-center items-center bg-gray-300 text-white text-xl font-bold" id="user_avatar_1"></div>
+              <div class="w-16 h-16 rounded-md flex justify-center items-center bg-gray-300 text-white text-xl font-bold" id="user_avatar_2"></div>
+              <div class="w-16 h-16 rounded-md flex justify-center items-center bg-gray-300 text-white text-xl font-bold" id="user_avatar_3"></div>
+              <div class="w-16 h-16 rounded-md flex justify-center items-center bg-gray-300 text-white text-xl font-bold" id="user_avatar_4"></div>
+            </div>
+
+            <img id="team_images_placeholder" src="./img/team_placeholder.png" class="mb-5 mt-2" style="opacity: 0.45;width: 75%;">
             <div class="mb-1">
-              <h2 class="text-lg font-semibold">You don’t have a team yet</h2>
-              <p class="text-sm text-gray-500">Start collaborating by creating your first team.</p>
+              <h2 id="team_text" class="text-lg font-semibold">You don’t have a team yet</h2>
+              <p id="team_subtext" class="text-sm text-gray-500">Start collaborating by creating your first team.</p>
             </div>
           </div>
 
-          <button onclick="go_to_team_form();" 
+          <button id="button_team_join" onclick="go_to_team_form();" 
           class="w-full py-2 px-4 mt-4 text-white font-medium bg-[rgb(33,145,140)] rounded-md hover:bg-[rgb(28,126,121)] transition-colors">
           Build a team
         </button>
@@ -466,7 +488,7 @@
       <div class="loader border-t-teal-600 border-4 border-gray-200 rounded-full w-12 h-12 animate-spin"></div>
       
       <!-- Text -->
-      <p class="text-lg font-medium text-gray-900 mt-12">Looking for the best teammates...</p>
+      <p id="spinner_text" class="text-lg font-medium text-gray-900 mt-12">Looking for the best teammates...</p>
     </div>
   </div>
 
@@ -555,32 +577,7 @@
 
     </div>
 
-
   </div>
-
-
-  <div class="container mx-auto p-6">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Card Example -->
-      <div class="relative group w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 bg-white hover:scale-105 transition-all duration-300 cursor-pointer">
-        <img src="https://avatar.oxro.io/avatar.svg?name=Sara+Vilar" alt="Profile Avatar" class="w-24 h-24 rounded-full object-cover mb-6">
-        <div class="text-lg font-semibold text-gray-900">Sara Vilar</div>
-        <div class="text-sm text-gray-500">Design</div>
-  
-        <!-- Popover content -->
-        <div class="absolute bottom-16 left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
-          <p><strong>Age:</strong> 21</p>
-          <p><strong>Year of Study:</strong> 4th Year</p>
-          <p><strong>Role:</strong> Design</p>
-          <p><strong>Hackathons Done:</strong> 2</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-
-  
-
 
 </body>
 </html>

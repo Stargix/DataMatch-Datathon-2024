@@ -196,3 +196,27 @@ function show_real_results(participants) {
 
 
 
+function joinTeam() {
+
+    document.getElementById("spinner_text").innerHTML = "Saving your new team...";
+    document.getElementById("real_results_page").style.display = "none";
+    document.getElementById("loader_spinner").style.display = "flex";
+
+    setTimeout(function() {
+        
+        document.getElementById("loader_spinner").style.display = "none";
+        document.getElementById("team_images_placeholder").style.display = "none";
+        document.getElementById("team_images_real").style.display = "flex";
+        document.getElementById("team_text").innerHTML = "You joined a team!";
+        document.getElementById("team_subtext").innerHTML = "You can change your team if you wish";
+        document.getElementById("button_team_join").innerHTML = "Leave the team";
+        document.getElementById("button_team_join").style.backgroundColor = "#e74c3c";
+        document.getElementById("dashboard").style.display = "block";
+
+    }, 2000);
+
+}
+
+function closeSuccessSection() {
+    document.getElementById("join_success_section").classList.add("hidden");
+  }
