@@ -298,7 +298,7 @@ function closeSuccessSection() {
   function closeExplainSection() {
     document.getElementById("explain_section").classList.add("hidden");
     document.getElementById("real_results_page").style.display = "block";
-  }
+  }*/
 
 function explain_team() {
 
@@ -307,7 +307,7 @@ function explain_team() {
     document.getElementById("explain_message").innerHTML = result_json[16]["answer"];
     document.getElementById("explanation_page").style.display = "block";
 
-}*/
+}
 
 const messagesContainer = document.getElementById('messages_cont');
 const userInput = document.getElementById('InputChatbot');
