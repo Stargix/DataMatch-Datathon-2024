@@ -282,8 +282,8 @@ function closeSuccessSection() {
 function explain_team() {
 
     document.getElementById("real_results_page").style.display = "none";
-    document.getElementById("join_success_section").classList.remove("hidden");
-    document.getElementById("join_success_message").innerHTML = result_json[16]["answer"];
+    document.getElementById("explain_section").classList.remove("hidden");
+    document.getElementById("explain_message").innerHTML = result_json[16]["answer"];
     document.getElementById("explanation_page").style.display = "block";
 
 }
