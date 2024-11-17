@@ -28,4 +28,5 @@ Data-Match is a tool designed to perform data matching, with advanced features s
 ## Matching Sistem
 
 Firstly we process the data from the user database, where we select the most important variables according to match campatibilities, then we standarize all the data to have all values between 0 and 1 and equilibrate weights.
-Once we have standarized the data, we group it in teams (there are users that have applyed with friens), then we apply the cosine_similarity function to analize distances between users in the multidimensional space, where we order by proximity and get a group of 4 suitable members, and a backup of similar users that might be useful if the match isn't succesful at first.
+
+Once we have standarized the data, we group it in teams (there are users that have applyed with friends), then we apply the cosine_similarity function to analize distances between users in the multidimensional space, where we order by proximity and get a group of 4 suitable members, and a backup of similar users that might be useful if the match isn't succesful at first.
