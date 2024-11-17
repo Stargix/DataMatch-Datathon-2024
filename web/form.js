@@ -295,6 +295,14 @@ const messagesContainer = document.getElementById('messages_cont');
 const userInput = document.getElementById('InputChatbot');
 const sendButton = document.getElementById('sendButton');
 
+
+
+function getFirstThreeResults() {
+    return result_json.slice(0, 3);
+}
+
+
+
 function sendMessage() {
     const messageText = userInput.value.trim(); // Obtén el texto del input y eliminas espacios innecesarios
     
@@ -314,20 +322,32 @@ function sendMessage() {
       // Limpiar el campo de entrada
       userInput.value = "";
 
-      // Responder de manera automática (simulando al bot)
-      setTimeout(() => {
+      // Enviar el mensaje al servidor Flask
+      fetch("http://127.0.0.1:5000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: messageText ,results: getFirstThreeResults() })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Crear un nuevo mensaje del bot con la respuesta del servidor
         const botMessage = document.createElement('div');
         botMessage.classList.add('flex', 'justify-start'); // Alinea los mensajes del bot a la izquierda
         botMessage.innerHTML = `
           <div class="max-w-[80%] rounded-2xl p-3 bg-gray-100 text-gray-800">
-            Gracias por tu mensaje, pero todavía soy un bot en desarrollo 😊
+            ${data.response}
           </div>
         `;
         messagesContainer.appendChild(botMessage);
 
         // Auto scroll al último mensaje
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      }, 1000); // Simula un pequeño retraso para la respuesta
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
     }
   }
 
@@ -340,3 +360,27 @@ function sendMessage() {
       sendMessage();
     }
   });
+
+
+function sssend_data(data) {
+    const url = "http://127.0.0.1:5000/chat";
+ 
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ data: data, results: getFirstThreeResults() })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Create the cards
+        const jsonArray = data.map(JSON.parse);
+        result_json = jsonArray;
+        show_real_results(jsonArray);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+}

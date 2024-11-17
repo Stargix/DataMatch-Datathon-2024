@@ -6,6 +6,7 @@ import json
 from flask import Flask, jsonify, request
 from matching import matching
 from flask_cors import CORS
+from ai_agent import chat
 
 df = pd.read_excel('datathon_participants_processed.xlsx')
 def info_group(user_profile):
@@ -40,6 +41,15 @@ def get_recommendations():
     user_json = request.get_json()
     
     return str(matching(str(user_json)))
+
+@app.route('/chat', methods=['POST'])
+def get_chat():
+    # User preferences (JSON)
+    json = request.get_json()
+    
+    print(json)
+    
+    return str(chat(str(json)))
 
 if __name__ == '__main__':
     app.run(debug=True)
