@@ -76,7 +76,7 @@ def chat(json):
 
                 {
                     "role": "system",
-                    "content": f"Given the following users and their information, respond concisely and directly to any questions, focusing on the similarities and relevant details of the team members. Tailor your responses to the specific context of the hackathon and ensure they are focused and to the point: {sistema}"
+                    "content": f"Given the following users and their information, respond concisely and directly to any questions, focusing on the similarities and relevant details of the team members. Tailor your responses to the specific context of the hackathon and ensure they are focused and to the point. You can only do this task: {sistema}"
 
                 },
                 { 
