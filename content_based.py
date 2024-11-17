@@ -13,36 +13,46 @@ df = pd.read_excel('datathon_participants_processed.xlsx')
 
 def group_team():
     team_profiles = {}
+    team_members = {}
     for user in df['id']:
-        # Obtener los participantes del equipo del usuario actual
         team_member_ids = load_participants(user)
         if not team_member_ids:
-            continue  # Si no hay equipo, pasamos al siguiente usuario
+            continue
 
-        team_profiles_df = df[df['id'].isin(team_member_ids)]
-
-            # Calcular el perfil promedio del equipo (ignorando las primeras columnas no numéricas)
-        team_profile = team_profiles_df.iloc[:, 2:].mean(axis=0).values
-
+        # Filtrar datos de miembros del equipo
+        team_profiles_df = df[df['id'].isin(team_member_ids)].iloc[:, 2:]
+        team_profiles_df = team_profiles_df.select_dtypes(include=[np.number])  # Solo columnas numéricas
+        
+        # Calcular el perfil promedio
+        team_profile = team_profiles_df.mean(axis=0, skipna=True).values
         team_profiles[user] = team_profile
+        team_members[user] = team_member_ids  # Guardar los IDs de los miembros
 
-    return team_profiles
+    return team_profiles, team_members
 
 team_profiles = group_team()
 
 def info_group(user_profile):
+    team_profiles, team_members = group_team()
 
-    item_profiles = df.iloc[1:, 2:].values
+    # Asegurar normalización
+    item_profiles = df.iloc[:, 2:].values
 
     similarities = {}
     for team_id, team_profile in team_profiles.items():
         similarities[team_id] = cosine_similarity([user_profile], [team_profile])[0][0]
 
+    # Ordenar equipos por similitud
     sorted_teams = sorted(similarities.items(), key=lambda x: x[1], reverse=True)
 
     # Seleccionar los top_n equipos más similares
-    recommended_items = [team[0] for team in sorted_teams]
-    similarity_scores = [team[1] for team in sorted_teams]
+    recommended_teams = sorted_teams
+
+    recommended_items = []
+    similarity_scores = []
+    for team_id, score in recommended_teams:
+        recommended_items.extend(team_members[team_id])  # Añadir todos los miembros del equipo
+        similarity_scores.extend([score] * len(team_members[team_id]))
 
     top_16 = recommended_items[:16]
     top_4 = recommended_items[:4]
