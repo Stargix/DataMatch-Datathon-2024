@@ -7,6 +7,7 @@ from flask import Flask, jsonify, request
 from matching import matching
 from flask_cors import CORS
 from ai_agent import chat
+import numpy as np
 
 
 df = pd.read_excel('datathon_participants_processed.xlsx')
