@@ -7,6 +7,7 @@ from flask import Flask, jsonify, request
 from matching import matching
 from flask_cors import CORS
 from ai_agent import chat
+import numpy as np
 
 
 df = pd.read_excel('datathon_participants_processed.xlsx')
@@ -58,6 +59,8 @@ def info_group(user_profile):
     return top_4
 
 user_profile = df.iloc[0, 2:].values
+random_index = np.random.randint(0, df.shape[0])
+user_profile = df.iloc[random_index, 2:].values
 
 print(info_group(user_profile))
 
