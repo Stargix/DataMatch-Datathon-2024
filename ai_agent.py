@@ -19,7 +19,7 @@ def objectives(mensaje_usuario):
             messages=[
                 {
                     "role": "user",
-                    "content": f"Given the following users of a team in a Hackathon, explain why they are similar users. Make it short and concise. Explain it to the user like he is included: Here are the users: {mensaje_usuario}"
+                    "content": f"Given the following users of a team in a Hackathon, explain why they are similar users with a short phrase. Make it very very short and concise. Explain it to the user like he is included: Here are the users: {mensaje_usuario}"
                 }
             ],
             model="llama3-groq-70b-8192-tool-use-preview",

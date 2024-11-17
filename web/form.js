@@ -277,7 +277,10 @@ function closeSuccessSection() {
     document.getElementById("real_results_page").style.display = "block";
   }
 
-
+  function closeExplainSection() {
+    document.getElementById("explain_section").classList.add("hidden");
+    document.getElementById("real_results_page").style.display = "block";
+  }
 
 function explain_team() {
 
@@ -287,3 +290,53 @@ function explain_team() {
     document.getElementById("explanation_page").style.display = "block";
 
 }
+
+const messagesContainer = document.getElementById('messages_cont');
+const userInput = document.getElementById('InputChatbot');
+const sendButton = document.getElementById('sendButton');
+
+function sendMessage() {
+    const messageText = userInput.value.trim(); // Obtén el texto del input y eliminas espacios innecesarios
+    
+    if (messageText !== "") { // Verifica que no esté vacío
+      // Crear un nuevo mensaje de usuario
+      const userMessage = document.createElement('div');
+      userMessage.classList.add('flex', 'justify-end'); // Alinea los mensajes del usuario a la derecha
+      userMessage.innerHTML = `
+        <div class="max-w-[80%] rounded-2xl p-3 bg-[#2F9E85] text-white">
+          ${messageText}
+        </div>
+      `;
+
+      // Agregar el mensaje al contenedor de mensajes
+      messagesContainer.appendChild(userMessage);
+
+      // Limpiar el campo de entrada
+      userInput.value = "";
+
+      // Responder de manera automática (simulando al bot)
+      setTimeout(() => {
+        const botMessage = document.createElement('div');
+        botMessage.classList.add('flex', 'justify-start'); // Alinea los mensajes del bot a la izquierda
+        botMessage.innerHTML = `
+          <div class="max-w-[80%] rounded-2xl p-3 bg-gray-100 text-gray-800">
+            Gracias por tu mensaje, pero todavía soy un bot en desarrollo 😊
+          </div>
+        `;
+        messagesContainer.appendChild(botMessage);
+
+        // Auto scroll al último mensaje
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 1000); // Simula un pequeño retraso para la respuesta
+    }
+  }
+
+  // Manejar el evento de clic en el botón
+  sendButton.addEventListener('click', sendMessage);
+
+  // Manejar el evento de "Enter" en el campo de texto
+  userInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  });
