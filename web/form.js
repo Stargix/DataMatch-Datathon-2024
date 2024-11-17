@@ -185,10 +185,14 @@ function send_data(data) {
 }
 
 
+function truncateText(text, maxLength) {
+  return text.length > maxLength ? text.slice(0, maxLength - 3) + "..." : text;
+}
+
 var users = [];
+const maxLength = "Software Engie...".length;
 
 function show_real_results(participants) {
-
   document.getElementById("loader_spinner").style.display = "none";
 
   // First card is filled with sent_json data
@@ -196,32 +200,44 @@ function show_real_results(participants) {
   document.getElementById("user_name_1").textContent = sent_json.name;
   document.getElementById("user_description_1").textContent = sent_json.preferred_role;
 
+  // Truncate role for the first card
+  const truncatedTextFirstCard = truncateText(sent_json.preferred_role, maxLength);
+
   // Popover for first card
   document.getElementById("user_age_1").textContent = `Age: ${sent_json.age}`;
-  document.getElementById("user_year_1").textContent = `Year of Study: ${sent_json.year_of_study}`;
-  document.getElementById("user_role_1").textContent = `Role: ${sent_json.preferred_role}`;
+  document.getElementById("user_year_1").textContent = `Study: ${sent_json.year_of_study}`;
+  document.getElementById("user_role_1").textContent = `Role: ${truncatedTextFirstCard}`;
   document.getElementById("user_hackathons_1").textContent = `Hackathons Done: ${sent_json.hackathons_done}`;
 
   // Fill remaining cards with data from participants array
   for (let i = 0; i < 3; i++) {
+    const cardId = i + 2; // To target user_card_2 and onwards
+
+    // Skip if the current card ID is in the saved_participants array
+    if (saved_participants.includes(cardId)) {
+      continue;
+    }
+
     const participant = participants[i];
-    const cardId = i + 2; // To target user_card_2 and user_card_3
 
     document.getElementById(`user_avatar_${cardId}`).src = `https://avatar.oxro.io/avatar.svg?name=${participant.name}`;
     document.getElementById(`user_name_${cardId}`).textContent = participant.name;
     document.getElementById(`user_description_${cardId}`).textContent = participant.preferred_role;
 
+    // Truncate role for other cards
+    const truncatedText = truncateText(participant.preferred_role, maxLength);
+
     // Popover for other cards
     document.getElementById(`user_age_${cardId}`).textContent = `Age: ${participant.age}`;
-    document.getElementById(`user_year_${cardId}`).textContent = `Year of Study: ${participant.year_of_study}`;
-    document.getElementById(`user_role_${cardId}`).textContent = `Role: ${participant.preferred_role}`;
+    document.getElementById(`user_year_${cardId}`).textContent = `Study: ${participant.year_of_study}`;
+    document.getElementById(`user_role_${cardId}`).textContent = `Role: ${truncatedText}`;
     document.getElementById(`user_hackathons_${cardId}`).textContent = `Hackathons Done: ${participant.hackathons_done}`;
   }
 
   document.getElementById("loader_spinner").style.display = "none";
   document.getElementById("real_results_page").style.display = "block";
-
 }
+
 
 
 function another_team() {
@@ -277,6 +293,8 @@ function closeSuccessSection() {
     document.getElementById("real_results_page").style.display = "block";
   }
 
+
+/*
   function closeExplainSection() {
     document.getElementById("explain_section").classList.add("hidden");
     document.getElementById("real_results_page").style.display = "block";
@@ -289,7 +307,7 @@ function explain_team() {
     document.getElementById("explain_message").innerHTML = result_json[16]["answer"];
     document.getElementById("explanation_page").style.display = "block";
 
-}
+}*/
 
 const messagesContainer = document.getElementById('messages_cont');
 const userInput = document.getElementById('InputChatbot');
@@ -422,3 +440,36 @@ function sssend_data(data) {
         console.error("Error:", error);
     });
 }
+
+
+
+// TEAM SELECTION CARDS
+
+var saved_participants = [];
+
+function toggleButtonState(button, num) {
+  if (button.innerText === "+") {
+    button.innerText = "✔";
+    button.classList.remove("border-gray-300", "text-gray-700", "hover:bg-gray-100");
+    button.classList.add("border-green-500", "bg-green-500", "text-white");
+  } else {
+    button.innerText = "+";
+    button.classList.remove("border-green-500", "bg-green-500", "text-white");
+    button.classList.add("border-gray-300", "text-gray-700", "hover:bg-gray-100");
+  }
+
+  // Handle participant number
+  addParticipant(num);
+
+}
+
+function addParticipant(number) {
+  if (!saved_participants.includes(number)) {
+      saved_participants.push(number);
+  }
+  else {
+    const index = saved_participants.indexOf(number);
+    saved_participants.splice(index, 1);
+  }
+}
+

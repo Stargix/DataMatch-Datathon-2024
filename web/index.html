@@ -79,7 +79,7 @@
   <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
     <!-- Chat header -->
     <div class="bg-[#2F9E85] p-4">
-      <h2 class="text-white text-xl font-medium">Why you match?</h2>
+      <h2 class="text-white text-xl font-medium">Why did we recommend this?</h2>
       <p class="text-[#E0F2EF] text-sm">
         Ask some questions to know what you have in common with this team
       </p>
@@ -111,7 +111,7 @@
           Send
         </button>
       </div>
-      <button onclick="closeExplainSection()" class="text-center mt-2 text-sm text-gray-500 hover:underline mx-auto block">go back</button>
+      <button onclick="closeExplainSection()" class="text-center mt-4 text-sm text-gray-500 hover:underline mx-auto block">go back</button>
     </div>
   </div>
 </div>
@@ -573,62 +573,118 @@
 
       <!-- Card 1 -->
     <div id="user_card_1" class="relative group w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 bg-white hover:scale-105 transition-all duration-300 cursor-pointer">
+      
       <img id="user_avatar_1" src="https://avatar.oxro.io/avatar.svg?name=John+Doe" alt="Persona 1" class="w-24 h-24 rounded-full object-cover mb-6">
       <div style="text-align: center;" id="user_name_1" class="text-lg font-semibold text-gray-900">John Doe</div>
       <div id="user_description_1" class="text-sm text-gray-500 -mt-2">Web Developer</div>
 
       <!-- Popover content -->
-      <div class="absolute bottom-16 left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
-        <p id="user_age_1"><strong>Age:</strong> 28</p>
-        <p id="user_year_1"><strong>Year of Study:</strong> 3rd Year</p>
-        <p id="user_role_1"><strong>Role:</strong> Web Developer</p>
-        <p id="user_hackathons_1"><strong>Hackathons Done:</strong> 5</p>
+      <div style="width: 100%;height: 100%;" class="absolute left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
+        <p style="text-align: center;" class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+          Participant info
+        </p>
+        <p id="user_age_1" style="line-height: 1.6;"><strong>Age:</strong> 22</p>
+        <p id="user_year_1" style="line-height: 1.6;"><strong>Study:</strong> 1st</p>
+        <p id="user_role_1" style="line-height: 1.6;"><strong>Role:</strong> Software Engineer</p>
+        <p id="user_hackathons_1" style="line-height: 1.6;"><strong>Hackathons Done:</strong> 5</p>
+        <div class="flex justify-center mt-5">
+          <button
+            disabled
+            style="opacity:0.5;" class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 bg-white text-gray-700 text-2xl font-bold transition-all duration-300 hover:bg-gray-100 focus:outline-none"
+          >
+           ✔
+          </button>
+        </div>
       </div>
+      
+
     </div>
 
     <!-- Card 2 -->
-    <div id="user_card_2" class="relative group w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 bg-white hover:scale-105 transition-all duration-300 cursor-pointer">
+    <div onclick="select_user(2);" id="user_card_2" class="relative group w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 bg-white hover:scale-105 transition-all duration-300 cursor-pointer">
       <img id="user_avatar_2" src="https://avatar.oxro.io/avatar.svg?name=Jane+Doe" alt="Persona 2" class="w-24 h-24 rounded-full object-cover mb-6">
       <div style="text-align: center;" id="user_name_2" class="text-lg font-semibold text-gray-900">Jane Doe</div>
       <div id="user_description_2" class="text-sm text-gray-500 -mt-2">UI/UX Designer</div>
 
       <!-- Popover content -->
-      <div class="absolute bottom-16 left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
-        <p id="user_age_2"><strong>Age:</strong> 26</p>
-        <p id="user_year_2"><strong>Year of Study:</strong> 2nd Year</p>
-        <p id="user_role_2"><strong>Role:</strong> UI/UX Designer</p>
-        <p id="user_hackathons_2"><strong>Hackathons Done:</strong> 3</p>
+      <div style="width: 100%;height: 100%;" class="absolute left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
+        
+        <p style="text-align: center;" class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+          Participant info
+        </p>
+
+        <p id="user_age_2" style="line-height: 1.6;"><strong>Age:</strong> 26</p>
+        <p id="user_year_2" style="line-height: 1.6;"><strong>Study:</strong> 2nd</p>
+        <p id="user_role_2" style="line-height: 1.6;"><strong>Role:</strong> UI/UX Designer</p>
+        <p id="user_hackathons_2" style="line-height: 1.6;"><strong>Hackathons Done:</strong> 3</p>
+        
+        <!-- Save member button -->
+        <div class="flex justify-center mt-5">
+          <button
+            class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 bg-white text-gray-700 text-2xl font-bold transition-all duration-300 hover:bg-gray-100 focus:outline-none"
+            onclick="toggleButtonState(this, 2)"
+          >
+            +
+          </button>
+        </div>
       </div>
+
     </div>
 
     <!-- Card 3 -->
-    <div id="user_card_3" class="relative group w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 bg-white hover:scale-105 transition-all duration-300 cursor-pointer">
+    <div onclick="select_user(3);" id="user_card_3" class="relative group w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 bg-white hover:scale-105 transition-all duration-300 cursor-pointer">
       <img id="user_avatar_3" src="https://avatar.oxro.io/avatar.svg?name=Sam+Smith" alt="Persona 3" class="w-24 h-24 rounded-full object-cover mb-6">
       <div style="text-align: center;" id="user_name_3" class="text-lg font-semibold text-gray-900">Sam Smith</div>
       <div id="user_description_3" class="text-sm text-gray-500 -mt-2">Full Stack Developer</div>
 
       <!-- Popover content -->
-      <div class="absolute bottom-16 left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
-        <p id="user_age_3"><strong>Age:</strong> 30</p>
-        <p id="user_year_3"><strong>Year of Study:</strong> 5th Year</p>
-        <p id="user_role_3"><strong>Role:</strong> Full Stack Developer</p>
-        <p id="user_hackathons_3"><strong>Hackathons Done:</strong> 8</p>
+      <div style="width: 100%;height: 100%;" class="absolute left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
+        <p style="text-align: center;" class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+          Participant info
+        </p>
+        <p id="user_age_3" style="line-height: 1.6;"><strong>Age:</strong> 30</p>
+        <p id="user_year_3" style="line-height: 1.6;"><strong>Study:</strong> Masters</p>
+        <p id="user_role_3" style="line-height: 1.6;"><strong>Role:</strong> Data Scientist</p>
+        <p id="user_hackathons_3" style="line-height: 1.6;"><strong>Hackathons Done:</strong> 7</p>
+        <div class="flex justify-center mt-5">
+          <button
+            class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 bg-white text-gray-700 text-2xl font-bold transition-all duration-300 hover:bg-gray-100 focus:outline-none"
+            onclick="toggleButtonState(this, 3)"
+          >
+            +
+          </button>
+        </div>
       </div>
+
+      
     </div>
 
     <!-- Card 4 -->
-    <div id="user_card_4" class="relative group w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 bg-white hover:scale-105 transition-all duration-300 cursor-pointer">
+    <div onclick="select_user(4)" id="user_card_4" class="relative group w-48 h-64 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center gap-4 bg-white hover:scale-105 transition-all duration-300 cursor-pointer">
       <img id="user_avatar_4" src="https://avatar.oxro.io/avatar.svg?name=Alex+Johnson" alt="Persona 4" class="w-24 h-24 rounded-full object-cover mb-6">
       <div style="text-align: center;" id="user_name_4" class="text-lg font-semibold text-gray-900">Alex Johnson</div>
       <div id="user_description_4" class="text-sm text-gray-500 -mt-2">Data Scientist</div>
 
       <!-- Popover content -->
-      <div class="absolute bottom-16 left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
-        <p id="user_age_4"><strong>Age:</strong> 27</p>
-        <p id="user_year_4"><strong>Year of Study:</strong> 4th Year</p>
-        <p id="user_role_4"><strong>Role:</strong> Data Scientist</p>
-        <p id="user_hackathons_4"><strong>Hackathons Done:</strong> 10</p>
+      <div style="width: 100%;height: 100%;" class="absolute left-0 bg-white shadow-xl rounded-lg p-4 text-sm text-gray-700 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 transition-all duration-300 w-56">
+        <p style="text-align: center;" class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+          Participant info
+        </p>
+        <p id="user_age_4" style="line-height: 1.6;"><strong>Age:</strong> 28</p>
+        <p id="user_year_4" style="line-height: 1.6;"><strong>Study:</strong> PhD</p>
+        <p id="user_role_4" style="line-height: 1.6;"><strong>Role:</strong> Researcher</p>
+        <p id="user_hackathons_4" style="line-height: 1.6;"><strong>Hackathons Done:</strong> 2</p>
+        <div class="flex justify-center mt-5">
+          <button
+            class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 bg-white text-gray-700 text-2xl font-bold transition-all duration-300 hover:bg-gray-100 focus:outline-none"
+            onclick="toggleButtonState(this, 4)"
+          >
+            +
+          </button>
+        </div>
       </div>
+
+      
     </div>
 
     </div>
