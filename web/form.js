@@ -294,11 +294,11 @@ function closeSuccessSection() {
   }
 
 
-/*
+
   function closeExplainSection() {
     document.getElementById("explain_section").classList.add("hidden");
     document.getElementById("real_results_page").style.display = "block";
-  }*/
+  }
 
 function explain_team() {
 
