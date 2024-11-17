@@ -13,4 +13,16 @@ def caracteriasticas(id_usu):
     result = df_filtrado.to_json(orient='records', lines=True)
     return result 
 
-caracteriasticas("2ebad15c-c0ef-4c04-ba98-c5d98403a90c")
+#caracteriasticas("2ebad15c-c0ef-4c04-ba98-c5d98403a90c")
+
+def load_participants(id_usu):
+
+
+    df_filtrado = df[["id", "friend_registration"]]
+    # Filtrar las filas basadas en los IDs seleccionados
+    df_filtrado = df_filtrado[df_filtrado['id'] == id_usu]
+
+    return df_filtrado["friend_registration"].values[0]
+
+
+#print(load_participants("2ebad15c-c0ef-4c04-ba98-c5d98403a90c"))
