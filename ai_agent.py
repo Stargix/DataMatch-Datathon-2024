@@ -20,7 +20,7 @@ def objectives(mensaje_usuario):
             messages=[
                 {
                     "role": "user",
-                    "content": f"Given the following users of a team in a Hackathon, explain why they are similar users with a short phrase. Make it very very short and concise. Explain it to the user like he is included: Here are the users: {mensaje_usuario}"
+                    "content": f"Given the following users of a team in a Hackathon, explain why they are similar users. short frase. Make it very very short and concise. Explain it to the user like he is included: Here are the users. make it general don't specify names. Be clear and close to the user: {mensaje_usuario}"
                 }
             ],
             model="llama3-groq-70b-8192-tool-use-preview",
@@ -38,10 +38,23 @@ def objectives(mensaje_usuario):
         return []
     
 
+class Message:
+    def __init__(self, message, results):
+        self.message = message
+        self.results = results
+
+    def to_dict(self):
+        return {
+            'message': self.message,
+            'results': self.results
+        }
+
 def chat(json):    
     # Load environment variables before accessing them
-
-    json_dict = json_lib.loads(json)
+    
+    x = Message(**json)
+    
+    json_dict = x.to_dict()
 
     mensaje_usuario = json_dict["message"]
     sistema = json_dict["results"]
@@ -63,7 +76,7 @@ def chat(json):
 
                 {
                     "role": "system",
-                    "content": f"Given the following users, answer shortly and concise the question the user is asking. Relating the similarities of the team: {sistema}"
+                    "content": f"Given the following users and their information, respond concisely and directly to any questions, focusing on the similarities and relevant details of the team members. Tailor your responses to the specific context of the hackathon and ensure they are focused and to the point: {sistema}"
 
                 },
                 { 
@@ -78,7 +91,6 @@ def chat(json):
         )
         
         response = chat_completion.choices[0].message.content
-        print(response)
         return response
        
     except Exception as e:

@@ -8,6 +8,9 @@ from matching import matching
 from flask_cors import CORS
 from ai_agent import chat
 
+
+
+
 df = pd.read_excel('datathon_participants_processed.xlsx')
 def info_group(user_profile):
 
@@ -37,6 +40,7 @@ CORS(app)  # Enables CORS for all routes
 @app.route('/recommendations', methods=['POST'])
 def get_recommendations():
     
+    
     # User preferences (JSON)
     user_json = request.get_json()
     
@@ -46,10 +50,8 @@ def get_recommendations():
 def get_chat():
     # User preferences (JSON)
     json = request.get_json()
-    
-    print(json)
-    
-    return str(chat(str(json)))
+  
+    return jsonify(chat(json))
 
 if __name__ == '__main__':
     app.run(debug=True)

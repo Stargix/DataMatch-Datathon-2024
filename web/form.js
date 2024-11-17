@@ -328,26 +328,64 @@ function sendMessage() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ message: messageText ,results: getFirstThreeResults() })
+        body: JSON.stringify({ 
+          message: messageText,
+          results: getFirstThreeResults() 
+        })
       })
       .then(response => response.json())
       .then(data => {
-        // Crear un nuevo mensaje del bot con la respuesta del servidor
+        console.log('Respuesta del servidor:', data);
+        
+        // Crear un nuevo mensaje del bot
         const botMessage = document.createElement('div');
-        botMessage.classList.add('flex', 'justify-start'); // Alinea los mensajes del bot a la izquierda
+        botMessage.classList.add('flex', 'justify-start');
+        
+        // Si data es directamente el texto de respuesta
+        const messageText = typeof data === 'string' ? data : 
+                           data.response ? data.response : 
+                           JSON.stringify(data);
+      
         botMessage.innerHTML = `
           <div class="max-w-[80%] rounded-2xl p-3 bg-gray-100 text-gray-800">
-            ${data.response}
+            ${messageText}
           </div>
         `;
+        
         messagesContainer.appendChild(botMessage);
-
-        // Auto scroll al último mensaje
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
       })
       .catch(error => {
-        console.error("Error:", error);
+        console.error('Error:', error);
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('flex', 'justify-start');
+        errorMessage.innerHTML = `
+          <div class="max-w-[80%] rounded-2xl p-3 bg-red-100 text-red-800">
+            Lo siento, ha ocurrido un error al procesar tu mensaje.
+          </div>
+        `;
+        messagesContainer.appendChild(errorMessage);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      })
+        // Hacer scroll al último mensaje
+       
+      
+      .catch(error => {
+        console.error('Error en la petición:', error);
+        // Mostrar mensaje de error al usuario
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('flex', 'justify-start');
+        errorMessage.innerHTML = `
+          <div class="max-w-[80%] rounded-2xl p-3 bg-red-100 text-red-800">
+            Lo siento, ha ocurrido un error al procesar tu mensaje.
+          </div>
+        `;
+        messagesContainer.appendChild(errorMessage);
       });
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      
+      
+      
     }
   }
 
