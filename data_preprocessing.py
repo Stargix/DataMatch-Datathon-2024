@@ -3,7 +3,7 @@ import pandas as pd
 import sklearn.preprocessing as skpre
 from ai_agent import objectives
 
-data_path = "data/datathon_participants.json"
+data_path = "/data/datathon_participants.json"
 participants = load_participants(data_path)
 
 df = pd.DataFrame(participants)

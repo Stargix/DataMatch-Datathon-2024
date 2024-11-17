@@ -277,13 +277,148 @@ function closeSuccessSection() {
     document.getElementById("real_results_page").style.display = "block";
   }
 
-
+  function closeExplainSection() {
+    document.getElementById("explain_section").classList.add("hidden");
+    document.getElementById("real_results_page").style.display = "block";
+  }
 
 function explain_team() {
 
     document.getElementById("real_results_page").style.display = "none";
-    document.getElementById("join_success_section").classList.remove("hidden");
-    document.getElementById("join_success_message").innerHTML = result_json[16]["answer"];
+    document.getElementById("explain_section").classList.remove("hidden");
+    document.getElementById("explain_message").innerHTML = result_json[16]["answer"];
     document.getElementById("explanation_page").style.display = "block";
 
+}
+
+const messagesContainer = document.getElementById('messages_cont');
+const userInput = document.getElementById('InputChatbot');
+const sendButton = document.getElementById('sendButton');
+
+
+
+function getFirstThreeResults() {
+    return result_json.slice(0, 3);
+}
+
+
+
+function sendMessage() {
+    const messageText = userInput.value.trim(); // Obtén el texto del input y eliminas espacios innecesarios
+    
+    if (messageText !== "") { // Verifica que no esté vacío
+      // Crear un nuevo mensaje de usuario
+      const userMessage = document.createElement('div');
+      userMessage.classList.add('flex', 'justify-end'); // Alinea los mensajes del usuario a la derecha
+      userMessage.innerHTML = `
+        <div class="max-w-[80%] rounded-2xl p-3 bg-[#2F9E85] text-white">
+          ${messageText}
+        </div>
+      `;
+
+      // Agregar el mensaje al contenedor de mensajes
+      messagesContainer.appendChild(userMessage);
+
+      // Limpiar el campo de entrada
+      userInput.value = "";
+
+      // Enviar el mensaje al servidor Flask
+      fetch("http://127.0.0.1:5000/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ 
+          message: messageText,
+          results: getFirstThreeResults() 
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta del servidor:', data);
+        
+        // Crear un nuevo mensaje del bot
+        const botMessage = document.createElement('div');
+        botMessage.classList.add('flex', 'justify-start');
+        
+        // Si data es directamente el texto de respuesta
+        const messageText = typeof data === 'string' ? data : 
+                           data.response ? data.response : 
+                           JSON.stringify(data);
+      
+        botMessage.innerHTML = `
+          <div class="max-w-[80%] rounded-2xl p-3 bg-gray-100 text-gray-800">
+            ${messageText}
+          </div>
+        `;
+        
+        messagesContainer.appendChild(botMessage);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('flex', 'justify-start');
+        errorMessage.innerHTML = `
+          <div class="max-w-[80%] rounded-2xl p-3 bg-red-100 text-red-800">
+            Lo siento, ha ocurrido un error al procesar tu mensaje.
+          </div>
+        `;
+        messagesContainer.appendChild(errorMessage);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      })
+        // Hacer scroll al último mensaje
+       
+      
+      .catch(error => {
+        console.error('Error en la petición:', error);
+        // Mostrar mensaje de error al usuario
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('flex', 'justify-start');
+        errorMessage.innerHTML = `
+          <div class="max-w-[80%] rounded-2xl p-3 bg-red-100 text-red-800">
+            Lo siento, ha ocurrido un error al procesar tu mensaje.
+          </div>
+        `;
+        messagesContainer.appendChild(errorMessage);
+      });
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      
+      
+      
+    }
+  }
+
+  // Manejar el evento de clic en el botón
+  sendButton.addEventListener('click', sendMessage);
+
+  // Manejar el evento de "Enter" en el campo de texto
+  userInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  });
+
+
+function sssend_data(data) {
+    const url = "http://127.0.0.1:5000/chat";
+ 
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ data: data, results: getFirstThreeResults() })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Create the cards
+        const jsonArray = data.map(JSON.parse);
+        result_json = jsonArray;
+        show_real_results(jsonArray);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
 }
