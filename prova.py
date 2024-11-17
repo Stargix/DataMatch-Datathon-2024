@@ -28,9 +28,8 @@ def group_team():
 
     return team_profiles
 
-team_profiles = group_team()
-
 def info_group(user_profile):
+    team_profiles = group_team()
 
     item_profiles = df.iloc[1:, 2:].values
 
@@ -44,38 +43,21 @@ def info_group(user_profile):
     recommended_items = [team[0] for team in sorted_teams]
     similarity_scores = [team[1] for team in sorted_teams]
 
-    top_16 = recommended_items[:16]
-    top_4 = recommended_items[:4]
+    top_4_items = recommended_items[:16]
+    top_4 = recommended_items[:3]
 
+    #top_4_items_ids = [df.iloc[recommended_items[i][0] + 1, 0] for i in range(16)]
     items_caracteristicas = []
 
-    for x in top_16:
+    for x in top_4:
         item_caracteristicas = caracteriasticas(x)
         items_caracteristicas.append(item_caracteristicas)
         
+    print(items_caracteristicas)
     items_caracteristicas_json = json.dumps(items_caracteristicas, ensure_ascii=False, indent=4)
-    return items_caracteristicas_json
+    return top_4
 
+user_profile = df.iloc[0, 2:].values
 
-app = Flask(__name__)
-CORS(app)  # Enables CORS for all routes
-
-@app.route('/recommendations', methods=['POST'])
-def get_recommendations():
-    
-    
-    # User preferences (JSON)
-    user_json = request.get_json()
-    
-    return str(matching(str(user_json)))
-
-@app.route('/chat', methods=['POST'])
-def get_chat():
-    # User preferences (JSON)
-    json = request.get_json()
-  
-    return jsonify(chat(json))
-
-if __name__ == '__main__':
-    app.run(debug=True)
+print(info_group(user_profile))
 
