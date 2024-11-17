@@ -14,6 +14,13 @@ Data-Match is a tool designed to perform data matching, with advanced features s
 
 ## 🚀 Installation
 
-1. Clone this repository:  
+- Clone this repository:  
    ```bash
    git clone https://github.com/Stargix/Datathon-2024
+
+---
+
+## 🧩 Execution
+
+- Execute: content_based.py
+- Open: /web/index.html
