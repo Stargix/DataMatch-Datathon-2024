@@ -20,6 +20,7 @@ The platform includes three main components:
 
 ## EXECUTION 🧩
 
+- Create: .env file with a groq LLAMA_APY_KEY
 - Execute: content_based.py
 - Open: /web/index.html
 
