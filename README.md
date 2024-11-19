@@ -1,5 +1,5 @@
 # **DATA-MATCH**
-Data-Match is the winning project of the Datathon FME 2024 AED Challenge, aimed at simplifying and enhancing the process of team formation.
+Data-Match is the winning project of the Datathon FME 2024 AED Challenge, aimed at simplifying the process of team formation.
 
 
 <p align="center" >
@@ -26,7 +26,9 @@ Chatbot Assistant: Provides insights into team recommendations and answers user 
 # THE DATASET 💾
 Taking a look at the user database and applying **Dimensionality Reduction** techniques *(PCA)*, we can observe various user clusters. We can see that the individuals that are recommended by our system are from the same cluster as the original user, allowing us to see that they are similar users. 
 
-![visualizacion_equipos.png](https://cdn.dorahacks.io/static/files/19339c429a47203ef3f28ac4f8380443.png)
+<p align="center" >
+  <img src="https://cdn.dorahacks.io/static/files/19339c429a47203ef3f28ac4f8380443.png" alt="Landing Page" width="800">
+</p>
 
 Observing locally, using *t-SNE* :
 ![visualizacion_equipos2.png]()
