@@ -61,13 +61,13 @@ To start, we’ve developed a **participant dashboard** that showcases relevant 
 </p>
 
 
-The registration form has been care100%y structured to gather a large amount of relevant data while minimizing complexity. The form is divided into sections, making it easier and less time-consuming to complete. 
+The registration form has been carefully structured to gather a large amount of relevant data while minimizing complexity. The form is divided into sections, making it easier and less time-consuming to complete. 
 
 <p align="center" >
   <img src="https://cdn.dorahacks.io/static/files/19339a157b84b5657235cbe4992ae128.png" alt="Landing Page" width="100%">
 </p>
 
-Once registered, our **AI-driven matching** system analyzes the data to identify the best team combinations, presenting the results to the user. 
+Once registered, our **ML**matching system analyzes the data to identify the best team combinations, presenting the results to the user. 
 
 <p align="center" >
   <img src="https://cdn.dorahacks.io/static/files/19339abc3abcc57955c64e4496db5c38.png" alt="Landing Page" width="100%">
