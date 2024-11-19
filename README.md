@@ -2,13 +2,10 @@
 
 Data-Match is a tool designed to perform data matching, with advanced features such as a form, a matching system, and an integrated chatbot.
 
----
-
 ![landing.png](https://cdn.dorahacks.io/static/files/19339be04057f7c2ad9066e4d4eae613.png)
 
 # INTRODUCTION 🌍
 Building effective teams is complicated, so our system aims to use the power of **Artificial Intelligence** to match Datathon participants and allow an incredible experience. 
-
 
 ## Features
 
@@ -16,12 +13,12 @@ Building effective teams is complicated, so our system aims to use the power of 
 - **Matching System**: Identify similarities to match Datathon groups.  
 - **Chatbot**: Dynamically interact with users to give information about the groups.  
 
----
-
 ## 🧩 Execution
 
 - Execute: content_based.py
 - Open: /web/index.html
+
+---
 
 # THE DATASET 💾
 Taking a look at the user database and applying **Dimensionality Reduction** techniques *(PCA)*, we can observe various user clusters. We can see that the individuals that are recommended by our system are from the same cluster as the original user, allowing us to see that they are similar users. 
@@ -31,11 +28,9 @@ Taking a look at the user database and applying **Dimensionality Reduction** tec
 Observing locally, using *t-SNE* :
 ![visualizacion_equipos2.png]()
 
-
 We can also take a look at the **Variance** of the users that our system recommends. As we can see on the folowing chart, the variances are very low, indicating that the users are, indeed, **very close** to each other. 
 
 ![varianza_distancias.png](https://cdn.dorahacks.io/static/files/19339ca30482a23cb9ef7ed4de78277a.png)
-
 
 # THE MATCHING SYSTEM ✨
 First, we process the data from the user database, selecting the most relevant variables based on match compatibility. Next, we standardize all the data to ensure that all values fall within the range of 0 to 1, balancing the weights across the variables. 
