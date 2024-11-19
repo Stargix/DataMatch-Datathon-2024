@@ -38,12 +38,12 @@ We can also take a look at the **Variance** of the users that our system recomme
 <p align="center" >
   <img src="https://cdn.dorahacks.io/static/files/19339ca30482a23cb9ef7ed4de78277a.png" alt="Landing Page" width="100%">
 </p>
-
+---
 # THE MATCHING SYSTEM ✨
 First, we process the data from the user database, selecting the most relevant variables based on match compatibility. Next, we standardize all the data to ensure that all values fall within the range of 0 to 1, balancing the weights across the variables. 
 
 Once the data is standardized, we group users into teams, taking into account that some users have applied with friends. We then apply the cosine similarity function to analyze the distances between users in a multidimensional space. Users are ranked by proximity, and we select a group of four suitable members. Additionally, we create a backup pool of similar users who can be considered if the initial match is unsuccessful.
-
+---
 # THE USER INTERFACE 💻
 We’ve designed a **modern**, **intuitive** user interface with a strong focus on ease of use. 
 
