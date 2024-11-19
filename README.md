@@ -3,7 +3,7 @@ Data-Match is the winning project of the Datathon FME 2024 AED Challenge, aimed 
 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339be04057f7c2ad9066e4d4eae613.png" alt="Landing Page" width="600" style="border-radius: 15px;">
+  <img src="https://cdn.dorahacks.io/static/files/19339be04057f7c2ad9066e4d4eae613.png" alt="Landing Page" width="800">
 </p>
 
 
