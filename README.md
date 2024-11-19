@@ -30,9 +30,6 @@ Taking a look at the user database and applying **Dimensionality Reduction** tec
   <img src="https://cdn.dorahacks.io/static/files/19339c429a47203ef3f28ac4f8380443.png" alt="Landing Page" width="100%">
 </p>
 
-Observing locally, using *t-SNE* :
-![visualizacion_equipos2.png]()
-
 We can also take a look at the **Variance** of the users that our system recommends. As we can see on the folowing chart, the variances are very low, indicating that the users are, indeed, **very close** to each other. 
 
 <p align="center" >
