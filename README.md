@@ -16,7 +16,9 @@ The platform includes three main components:
 - Simple Matching Algorithm: Groups participants into compatible teams.
 - Chatbot Assistant: Provides insights into team recommendations and answers user questions.
 
-## 🧩 Execution
+---
+
+## EXECUTION 🧩
 
 - Execute: content_based.py
 - Open: /web/index.html
