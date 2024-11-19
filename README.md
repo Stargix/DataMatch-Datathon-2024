@@ -3,6 +3,11 @@ Data-Match is the winning project of the Datathon FME 2024 AED Challenge, aimed 
 
 ![landing.png](https://cdn.dorahacks.io/static/files/19339be04057f7c2ad9066e4d4eae613.png)
 
+<p align="center">
+  <img src="https://cdn.dorahacks.io/static/files/19339be04057f7c2ad9066e4d4eae613.png" alt="Landing Page" width="600">
+</p>
+
+
 # INTRODUCTION 🌍
 Our tool uses basic Machine Learning techniques to match participants based on their skills, preferences, and compatibility, and it is designed to ensure that everyone has an enjoyable and productive experience during the Datathon.
 
