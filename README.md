@@ -47,7 +47,7 @@ We can also take a look at the **Variance** of the users that our system recomme
 # THE MATCHING SYSTEM ✨
 First, we process the data from the user database, selecting the most relevant variables based on match compatibility. Next, we standardize all the data to ensure that all values fall within the range of 0 to 1, balancing the weights across the variables. 
 
-Once the data is standardized, we group users into teams, taking into account that some users have applied with friends. We then apply the cosine similarity function to analyze the distances between users in a multidimensional space. Users are ranked by proximity, and we select a group of four suitable members. Additionally, we create a backup pool of similar users who can be considered if the initial match is unsuccessful.
+Once the data is standardized, we group users into teams, taking into account that some users have applied with friends. We then apply the cosine similarity function to analyze the distances between users in a multidimensional space using the content based filtering algorithm. Users are ranked by proximity, and we select a group of four suitable members. Additionally, we create a backup pool of similar users who can be considered if the initial match is unsuccessful.
 
 ---
 
