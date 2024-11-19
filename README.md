@@ -3,7 +3,7 @@ Data-Match is the winning project of the Datathon FME 2024 AED Challenge, aimed 
 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339be04057f7c2ad9066e4d4eae613.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/19339be04057f7c2ad9066e4d4eae613.png" alt="Landing Page" width="100%">
 </p>
 
 
@@ -12,9 +12,9 @@ Our tool uses basic Machine Learning techniques to match participants based on t
 
 The platform includes three main components:
 
-User-Friendly Form: Collects relevant participant data efficiently.
-Simple Matching Algorithm: Groups participants into compatible teams.
-Chatbot Assistant: Provides insights into team recommendations and answers user questions.
+- User-Friendly Form: Collects relevant participant data efficiently.
+- Simple Matching Algorithm: Groups participants into compatible teams.
+- Chatbot Assistant: Provides insights into team recommendations and answers user questions.
 
 ## 🧩 Execution
 
@@ -27,7 +27,7 @@ Chatbot Assistant: Provides insights into team recommendations and answers user 
 Taking a look at the user database and applying **Dimensionality Reduction** techniques *(PCA)*, we can observe various user clusters. We can see that the individuals that are recommended by our system are from the same cluster as the original user, allowing us to see that they are similar users. 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339c429a47203ef3f28ac4f8380443.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/19339c429a47203ef3f28ac4f8380443.png" alt="Landing Page" width="100%">
 </p>
 
 Observing locally, using *t-SNE* :
@@ -36,7 +36,7 @@ Observing locally, using *t-SNE* :
 We can also take a look at the **Variance** of the users that our system recommends. As we can see on the folowing chart, the variances are very low, indicating that the users are, indeed, **very close** to each other. 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339ca30482a23cb9ef7ed4de78277a.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/19339ca30482a23cb9ef7ed4de78277a.png" alt="Landing Page" width="100%">
 </p>
 
 # THE MATCHING SYSTEM ✨
@@ -50,39 +50,39 @@ We’ve designed a **modern**, **intuitive** user interface with a strong focus 
 To start, we’ve developed a **participant dashboard** that showcases relevant information, such as upcoming events, ensuring users have quick and easy access to key details.
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/193399df869c32a5d0947be45c9bc3c8.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/193399df869c32a5d0947be45c9bc3c8.png" alt="Landing Page" width="100%">
 </p>
 
 
-The registration form has been carefully structured to gather a large amount of relevant data while minimizing complexity. The form is divided into sections, making it easier and less time-consuming to complete. 
+The registration form has been care100%y structured to gather a large amount of relevant data while minimizing complexity. The form is divided into sections, making it easier and less time-consuming to complete. 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339a157b84b5657235cbe4992ae128.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/19339a157b84b5657235cbe4992ae128.png" alt="Landing Page" width="100%">
 </p>
 
 Once registered, our **AI-driven matching** system analyzes the data to identify the best team combinations, presenting the results to the user. 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339abc3abcc57955c64e4496db5c38.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/19339abc3abcc57955c64e4496db5c38.png" alt="Landing Page" width="100%">
 </p>
 
 Additionally, an **AI-powered chatbot** is available to answer detailed questions about both individual participants and the team as a whole, ensuring transparency and explainability in our recommendations. 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339ac25ca1cf1f45bc1b2416ab0664.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/19339ac25ca1cf1f45bc1b2416ab0664.png" alt="Landing Page" width="100%">
 </p>
 
 Users can save, swap, and adjust team members until they are satisfied.
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339ac86a70fe7010e2faa4b48a697d.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/19339ac86a70fe7010e2faa4b48a697d.png" alt="Landing Page" width="100%">
 </p>
 
 
 Once the perfect team is formed, joining is just a click away. 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339accdb2e4423c76783b4638b477e.png" alt="Landing Page" width="1000">
+  <img src="https://cdn.dorahacks.io/static/files/19339accdb2e4423c76783b4638b477e.png" alt="Landing Page" width="100%">
 </p>
 
 **Team building has never been simpler!** ☀️
