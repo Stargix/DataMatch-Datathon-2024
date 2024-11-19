@@ -67,13 +67,13 @@ The registration form has been carefully structured to gather a large amount of 
   <img src="https://cdn.dorahacks.io/static/files/19339a157b84b5657235cbe4992ae128.png" alt="Landing Page" width="100%">
 </p>
 
-Once registered, our **ML**matching system analyzes the data to identify the best team combinations, presenting the results to the user. 
+Once registered, our **ML** matching system analyzes the data to identify the best team combinations, presenting the results to the user. 
 
 <p align="center" >
   <img src="https://cdn.dorahacks.io/static/files/19339abc3abcc57955c64e4496db5c38.png" alt="Landing Page" width="100%">
 </p>
 
-Additionally, an **AI-powered chatbot** is available to answer detailed questions about both individual participants and the team as a whole, ensuring transparency and explainability in our recommendations. 
+Additionally, an **AI-Agent powered chatbot** is available to answer detailed questions about both individual participants and the team as a whole, ensuring transparency and explainability in our recommendations. 
 
 <p align="center" >
   <img src="https://cdn.dorahacks.io/static/files/19339ac25ca1cf1f45bc1b2416ab0664.png" alt="Landing Page" width="100%">
@@ -84,7 +84,6 @@ Users can save, swap, and adjust team members until they are satisfied.
 <p align="center" >
   <img src="https://cdn.dorahacks.io/static/files/19339ac86a70fe7010e2faa4b48a697d.png" alt="Landing Page" width="100%">
 </p>
-
 
 Once the perfect team is formed, joining is just a click away. 
 
