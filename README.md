@@ -76,19 +76,19 @@ Once registered, our **ML** matching system analyzes the data to identify the be
 Additionally, an **AI-Agent powered chatbot** is available to answer detailed questions about both individual participants and the team as a whole, ensuring transparency and explainability in our recommendations. 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339ac25ca1cf1f45bc1b2416ab0664.png" alt="Landing Page" width="100%">
+  <img src="/img/foto1.png" alt="Landing Page" width="100%">
 </p>
 
 Users can save, swap, and adjust team members until they are satisfied.
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339ac86a70fe7010e2faa4b48a697d.png" alt="Landing Page" width="100%">
+  <img src="/img/foto2.png" alt="Landing Page" width="100%">
 </p>
 
 Once the perfect team is formed, joining is just a click away. 
 
 <p align="center" >
-  <img src="https://cdn.dorahacks.io/static/files/19339accdb2e4423c76783b4638b477e.png" alt="Landing Page" width="100%">
+  <img src="/img/foto3.png" alt="Landing Page" width="100%">
 </p>
 
 **Team building has never been simpler!** ☀️
