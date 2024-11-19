@@ -65,6 +65,9 @@ Users can save, swap, and adjust team members until they are satisfied.
 
 Once the perfect team is formed, joining is just a click away. 
 
-![team_joined.png](https://cdn.dorahacks.io/static/files/19339accdb2e4423c76783b4638b477e.png)
+<p align="center" >
+  <img src="https://cdn.dorahacks.io/static/files/19339accdb2e4423c76783b4638b477e.png" alt="Landing Page" width="800">
+</p>
+
 
 **Team building has never been simpler!** ☀️
