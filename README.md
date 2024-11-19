@@ -30,6 +30,12 @@ Taking a look at the user database and applying **Dimensionality Reduction** tec
   <img src="https://cdn.dorahacks.io/static/files/19339c429a47203ef3f28ac4f8380443.png" alt="Landing Page" width="100%">
 </p>
 
+Our tool also recommends groups of friends that have already applied together, where we can see that the user still matches with teammates from the same cluster.
+
+<p align="center" >
+  <img src="/img/visualizacion_equipos.png" alt="Landing Page" width="100%">
+</p>
+
 We can also take a look at the **Variance** of the users that our system recommends. As we can see on the folowing chart, the variances are very low, indicating that the users are, indeed, **very close** to each other. 
 
 <p align="center" >
