@@ -56,11 +56,11 @@ Once registered, our **AI-driven matching** system analyzes the data to identify
 ![team_recommendations.png](https://cdn.dorahacks.io/static/files/19339abc3abcc57955c64e4496db5c38.png)
 
 Additionally, an **AI-powered chatbot** is available to answer detailed questions about both individual participants and the team as a whole, ensuring transparency and explainability in our recommendations. 
-
+<br><br>
 ![team_chat.png](https://cdn.dorahacks.io/static/files/19339ac25ca1cf1f45bc1b2416ab0664.png)
 
 Users can save, swap, and adjust team members until they are satisfied.
-
+<br><br>
 ![team_change.png](https://cdn.dorahacks.io/static/files/19339ac86a70fe7010e2faa4b48a697d.png)
 
 Once the perfect team is formed, joining is just a click away. 
