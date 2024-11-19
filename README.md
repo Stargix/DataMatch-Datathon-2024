@@ -1,13 +1,10 @@
 # **DATA-MATCH**
-
-Data-Match is a tool designed to perform data matching, with advanced features such as a form, a matching system, and an integrated chatbot.
+Data-Match is the winning project of the Datathon FME 2024 AED Challenge, aimed at simplifying and enhancing the process of team formation.
 
 ![landing.png](https://cdn.dorahacks.io/static/files/19339be04057f7c2ad9066e4d4eae613.png)
 
 # INTRODUCTION 🌍
-Data-Match is a project developed for the FME Datathon 2024, aimed at simplifying and enhancing the process of team formation.
-
-Our tool uses basic Machine Learning techniques to match participants based on their skills, preferences, and compatibility. Data-Match is designed to ensure that everyone has an enjoyable and productive experience during the Datathon.
+Our tool uses basic Machine Learning techniques to match participants based on their skills, preferences, and compatibility, and it is designed to ensure that everyone has an enjoyable and productive experience during the Datathon.
 
 The platform includes three main components:
 
