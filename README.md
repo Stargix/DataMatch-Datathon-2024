@@ -47,14 +47,24 @@ We’ve designed a **modern**, **intuitive** user interface with a strong focus 
 
 To start, we’ve developed a **participant dashboard** that showcases relevant information, such as upcoming events, ensuring users have quick and easy access to key details.
 ![Participant Dasboard.png](https://cdn.dorahacks.io/static/files/193399df869c32a5d0947be45c9bc3c8.png)
+
 The registration form has been carefully structured to gather a large amount of relevant data while minimizing complexity. The form is divided into sections, making it easier and less time-consuming to complete. 
+
 ![FORMSection.png](https://cdn.dorahacks.io/static/files/19339a157b84b5657235cbe4992ae128.png)
+
 Once registered, our **AI-driven matching** system analyzes the data to identify the best team combinations, presenting the results to the user. 
 ![team_recommendations.png](https://cdn.dorahacks.io/static/files/19339abc3abcc57955c64e4496db5c38.png)
+
 Additionally, an **AI-powered chatbot** is available to answer detailed questions about both individual participants and the team as a whole, ensuring transparency and explainability in our recommendations. 
+
 ![team_chat.png](https://cdn.dorahacks.io/static/files/19339ac25ca1cf1f45bc1b2416ab0664.png)
+
 Users can save, swap, and adjust team members until they are satisfied.
+
 ![team_change.png](https://cdn.dorahacks.io/static/files/19339ac86a70fe7010e2faa4b48a697d.png)
+
 Once the perfect team is formed, joining is just a click away. 
+
 ![team_joined.png](https://cdn.dorahacks.io/static/files/19339accdb2e4423c76783b4638b477e.png)
+
 **Team building has never been simpler!** ☀️
